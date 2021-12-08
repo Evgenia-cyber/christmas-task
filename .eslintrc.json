@@ -13,9 +13,10 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "eslint-plugin-prettier"],
+  "plugins": ["react", "@typescript-eslint", "eslint-plugin-prettier", "prettier"],
   "rules": {
     "react/prop-types": "off",
+    "react/require-default-props": "off",
     "prettier/prettier": [
       "error",
       {
@@ -42,7 +43,14 @@
       }
     ],
     "import/no-unresolved": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "react/jsx-curly-newline": "off",
+    "object-curly-newline": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "react/button-has-type": "off"
   },
   "settings": {
     "import/resolver": {
