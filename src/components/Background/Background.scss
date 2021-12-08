@@ -1,0 +1,20 @@
+.home-page-bg,
+.page-bg {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.home-page-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(../../assets/images/home-bg.jpg);
+}
+
+.page-bg {
+  background-image: url(../../assets/images/bg.jpg);
+}

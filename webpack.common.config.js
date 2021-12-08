@@ -33,7 +33,7 @@ module.exports = {
             loader: 'sass-resources-loader',
             options: {
               // эти scss файлы будут общими для всех других scss
-              resources: ['src/styles/vars.scss'],
+              resources: ['src/styles/vars.scss', 'src/styles/mixins.scss'],
             },
           },
         ],

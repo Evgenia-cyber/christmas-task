@@ -1,4 +1,16 @@
 .button {
+  padding: $button-padding;
+  color: $font-color;
   font-family: $accent-font-family;
   font-size: $button-font-size;
+  letter-spacing: $button-letter-spacing;
+  text-shadow: $titde-text-shadow;
+  @include overlay();
+  border-radius: 50px;
+  border: $button-border;
+  transition: background-color $transition-duration;
+  &:hover {
+    background-color: $overlay-bg-hover;
+    cursor: pointer;
+  }
 }
