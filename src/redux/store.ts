@@ -1,9 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import testReducer from './slices/testSlice';
+import toysReducer from './slices/toysSlice';
 
 export const store = configureStore({
   reducer: {
-    test: testReducer,
+    toys: toysReducer,
   },
 });
 
