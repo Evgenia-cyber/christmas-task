@@ -6,7 +6,7 @@
   "singleQuote": true,
   "tabWidth": 2,
   "bracketSpacing": true,
-  "jsxBracketSameLine": false,
+  "bracketSameLine": false,
   "endOfLine": "crlf",
   "trailingComma": "all"
 }
