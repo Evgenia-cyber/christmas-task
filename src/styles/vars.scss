@@ -1,7 +1,10 @@
+$max-width: 1200px;
+
 $accent-font-family: 'Pattaya', sans-serif;
 
 $basic-font-size: 16px;
 $button-font-size: 20px;
+$title-font-size: 28px;
 
 $button-letter-spacing: 1px;
 
@@ -9,6 +12,7 @@ $font-color: #ffffff;
 $overlay-bg: rgba(33, 107, 110, 0.5);
 $overlay-bg-hover: rgba(44, 171, 175, 0);
 $accent-dark-color: #084f5c;
+$hover-color:  #c38528;
 
 $titde-text-shadow: 1px 1px 2px $accent-dark-color;
 
@@ -16,5 +20,9 @@ $overlay-border: 3px solid $accent-dark-color;
 $button-border: 2px solid $accent-dark-color;
 
 $button-padding: 14px 40px;
+$left-right-padding: 10px;
 
 $transition-duration: 0.3s;
+$transition-duration-icons: 0.1s;
+
+$icons-filter:  invert(42%) sepia(80%) saturate(382%) hue-rotate(357deg) brightness(89%) contrast(93%);;

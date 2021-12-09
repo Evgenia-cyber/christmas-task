@@ -1,0 +1,33 @@
+.nav{
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: inline-block;
+  height: 40px;
+  transition: filter $transition-duration-icons;
+  &:hover {
+    filter: $icons-filter;
+    cursor: pointer;
+  }
+}
+
+.logo img {
+  height: 100%;
+}
+
+.nav-link {
+  font-family: $accent-font-family;
+  font-size: $title-font-size;
+  &:hover {
+    cursor: pointer;
+    color: $hover-color;
+  }
+}
+
+.nav-link.active {
+  color: $hover-color;
+  text-decoration: underline;
+}

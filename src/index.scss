@@ -10,3 +10,12 @@ h4,
 h5 {
   font-family: $accent-font-family;
 }
+
+button {
+  outline: none;
+}
+
+a {
+  color: $font-color;
+  text-decoration: none;
+}

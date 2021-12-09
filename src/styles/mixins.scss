@@ -2,3 +2,10 @@
    background-color: $overlay-bg;
    backdrop-filter: blur(5px);
 }
+
+@mixin container(){
+   max-width: $max-width;
+   margin: 0 auto;
+   padding-left: $left-right-padding;
+   padding-right: $left-right-padding;
+}

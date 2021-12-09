@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Background from '../../components/Background/Background';
 import Button from '../../components/Button/Button';
 import Loader from '../../components/Loader/Loader';
+import PageTemplate from '../../components/PageTemplate/PageTemplate';
 import { fetchToysData, isLoadingSlice, toysArrSlice } from '../../redux/slices/toysSlice';
 import { BUTTON_TYPES } from '../../types/common';
 
@@ -26,7 +26,7 @@ const ToysPage: FC = () => {
   };
 
   return (
-    <Background>
+    <PageTemplate>
       {isLoading ? (
         <Loader />
       ) : (
@@ -35,7 +35,7 @@ const ToysPage: FC = () => {
           <Button text="Начать" type={BUTTON_TYPES.BUTTON} onClick={onClickHandler} />
         </>
       )}
-    </Background>
+    </PageTemplate>
   );
 };
 
