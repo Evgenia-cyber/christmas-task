@@ -1,0 +1,62 @@
+.toy-card {
+  width: 300px;
+  height: 290px;
+  box-sizing: border-box;
+  padding: 5px;
+  @include card-overlay();
+  border-radius: 5px;
+  border: $button-border;
+  transition: background-color $transition-duration;
+  &:hover {
+    background-color: $overlay-bg;
+    cursor: pointer;
+  }
+
+  & p {
+    font-family: sans-serif;
+    letter-spacing: normal;
+  }
+}
+
+.toy-title {
+  font-size: $button-font-size;
+  font-weight: 400;
+  text-align: center;
+}
+
+.toy-container {
+  display: flex;
+  // justify-content: center;
+}
+
+.toy-container-left {
+  flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toy-img {
+  width: 80px;
+}
+
+.selected {
+  background-color: $hover-color;
+}
+
+.not-selected {
+  background-color: $selected-color;
+}
+
+.selected,
+.not-selected {
+  width: 90px;
+  height: 30px;
+  transform: translateX(-23px) translateY(-20px);
+  clip-path: polygon(0 0, 100% 0, 80% 50%, 100% 100%, 0 100%);
+}
+
+.toy-count {
+  margin-top: 0;
+}

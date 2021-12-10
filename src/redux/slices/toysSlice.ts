@@ -8,8 +8,11 @@ interface CounterState {
   isLoading: boolean;
 }
 
+const toysFromLocalStorage = localStorage.getItem('toys');
+const initToys = toysFromLocalStorage ? JSON.parse(toysFromLocalStorage) : [];
+
 const initialState: CounterState = {
-  toys: [],
+  toys: initToys,
   isLoading: false,
 };
 
@@ -23,10 +26,18 @@ export const toysSlice = createSlice({
     setToys: (state, action: PayloadAction<Array<IToy>>) => {
       state.toys = action.payload;
     },
+    toogleIsSelectedOfToy: (state, action: PayloadAction<string>) => {
+      const selectedToyNum = Number(action.payload);
+      const { toys } = state;
+      toys[selectedToyNum - 1].isSelected = !toys[selectedToyNum - 1].isSelected;
+
+      state.toys = toys;
+      localStorage.setItem('toys', JSON.stringify(toys));
+    },
   },
 });
 
-export const { setIsLoading, setToys } = toysSlice.actions;
+export const { setIsLoading, setToys, toogleIsSelectedOfToy } = toysSlice.actions;
 
 export const fetchToysData = (): AppThunk => async (dispatch) => {
   dispatch(setIsLoading(true));

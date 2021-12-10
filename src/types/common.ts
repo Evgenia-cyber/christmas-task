@@ -13,4 +13,5 @@ export interface IToy {
   color: string;
   size: string;
   favorite: boolean;
+  isSelected?: boolean;
 }

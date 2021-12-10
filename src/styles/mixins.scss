@@ -1,5 +1,14 @@
 @mixin overlay() {
   background-color: $overlay-bg;
+  @include blur-overlay();
+}
+
+@mixin card-overlay() {
+  background-color: $overlay-bg-card;
+  @include blur-overlay();
+}
+
+@mixin blur-overlay() {
   backdrop-filter: blur(5px);
 }
 
