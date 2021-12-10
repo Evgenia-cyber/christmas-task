@@ -17,7 +17,7 @@ const Nav: FC = () => (
       const setActiveLink = ({ isActive }: { isActive: boolean }) => (isActive ? `${linkClass} active` : linkClass);
 
       return isLogo ? (
-        <NavLink key={to} to={`/${to}`} className={setActiveLink}>
+        <NavLink key={to} to={to} className={setActiveLink}>
           <img src={logoImg} alt="Лого" />
         </NavLink>
       ) : (

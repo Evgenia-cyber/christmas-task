@@ -1,4 +1,4 @@
-.nav{
+.nav {
   width: 300px;
   display: flex;
   justify-content: space-between;
@@ -7,11 +7,7 @@
 .logo {
   display: inline-block;
   height: 40px;
-  transition: filter $transition-duration-icons;
-  &:hover {
-    filter: $icons-filter;
-    cursor: pointer;
-  }
+  @include icon();
 }
 
 .logo img {
@@ -19,12 +15,8 @@
 }
 
 .nav-link {
-  font-family: $accent-font-family;
   font-size: $title-font-size;
-  &:hover {
-    cursor: pointer;
-    color: $hover-color;
-  }
+  @include hover();
 }
 
 .nav-link.active {

@@ -1,0 +1,16 @@
+.footer {
+  @include container();
+  height: $footer-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-author {
+  @include hover();
+}
+
+.rs-school {
+  height: $menu-icons-height;
+  @include icon();
+}
