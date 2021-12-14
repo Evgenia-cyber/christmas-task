@@ -1,22 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { DATA_URL, SELECTED_TOYS_MAX_COUNT } from '../../constants';
 import { ISettings, IToy } from '../../types/common';
-import getSelectedToysCount from '../../utils/getSelectedToysCount';
-import { initSelectedToysCount, initSettings, initToys } from '../initState';
+import setIsSelectedForSelectedToys from '../../utils/setIsSelectedForSelectedToys';
+import { initSelectedToysNums, initSettings } from '../initState';
 import { AppThunk, RootState } from '../store';
 
 interface CounterState {
   toys: Array<IToy>;
   isLoading: boolean;
-  selectedToysCount: number;
+  selectedToysNums: Array<string>;
   isShowPopup: boolean;
   settings: ISettings;
 }
 
 const initialState: CounterState = {
-  toys: initToys,
+  toys: [],
   isLoading: false,
-  selectedToysCount: initSelectedToysCount,
+  selectedToysNums: initSelectedToysNums,
   isShowPopup: false,
   settings: { quantityFilter: initSettings.quantity },
 };
@@ -32,7 +32,12 @@ export const toysSlice = createSlice({
       state.isShowPopup = action.payload;
     },
     setToys: (state, action: PayloadAction<Array<IToy>>) => {
-      state.toys = action.payload;
+      let toys = action.payload;
+      const { selectedToysNums } = state;
+      if (selectedToysNums.length > 0) {
+        toys = setIsSelectedForSelectedToys(toys, selectedToysNums);
+      }
+      state.toys = toys;
     },
     setSettings: (state, action: PayloadAction<ISettings>) => {
       const newSettings = action.payload;
@@ -40,19 +45,29 @@ export const toysSlice = createSlice({
       localStorage.setItem('settings', JSON.stringify(newSettings));
     },
     toogleIsSelectedOfToy: (state, action: PayloadAction<string>) => {
-      const selectedToyNum = Number(action.payload);
-      const { toys } = state;
-      toys[selectedToyNum - 1].isSelected = !toys[selectedToyNum - 1].isSelected;
-      const selectedToysCount = getSelectedToysCount(toys);
+      const selectedToyNum = action.payload;
+      const { toys, selectedToysNums } = state;
+      const selectedToysCount = selectedToysNums.length;
 
-      if (selectedToysCount > SELECTED_TOYS_MAX_COUNT) {
-        toys[selectedToyNum - 1].isSelected = false;
-        state.isShowPopup = true;
+      const index = selectedToysNums.indexOf(selectedToyNum);
+      if (index !== -1) {
+        selectedToysNums.splice(index, 1);
+      } else if (selectedToysCount < SELECTED_TOYS_MAX_COUNT) {
+        selectedToysNums.push(selectedToyNum);
       } else {
-        state.toys = toys;
-        state.selectedToysCount = selectedToysCount;
-        localStorage.setItem('toys', JSON.stringify(toys));
+        state.isShowPopup = true;
+        return;
       }
+
+      state.selectedToysNums = selectedToysNums;
+      state.toys = toys.map((toy) => {
+        if (toy.num === selectedToyNum) {
+          toy.isSelected = !toy.isSelected;
+        }
+        return toy;
+      });
+
+      localStorage.setItem('toysNums', JSON.stringify(selectedToysNums));
     },
   },
 });
@@ -74,7 +89,7 @@ export const fetchToysData = (): AppThunk => async (dispatch) => {
 
 export const toysArrSlice = (state: RootState): Array<IToy> => state.toys.toys;
 export const isLoadingSlice = (state: RootState): boolean => state.toys.isLoading;
-export const selectedToysCountSlice = (state: RootState): number => state.toys.selectedToysCount;
+export const selectedToysCountSlice = (state: RootState): number => state.toys.selectedToysNums.length;
 export const isShowPopupSlice = (state: RootState): boolean => state.toys.isShowPopup;
 export const settingsSlice = (state: RootState): ISettings => state.toys.settings;
 

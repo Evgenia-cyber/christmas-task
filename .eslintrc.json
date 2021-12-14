@@ -55,7 +55,8 @@
     "no-param-reassign": ["error", { "props": false }],
     "operator-linebreak": "off",
     "indent": ["error", 2, { "SwitchCase": 2, "MemberExpression": "off" }],
-    "react/jsx-one-expression-per-line": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "implicit-arrow-linebreak": "off"
   },
   "settings": {
     "import/resolver": {
