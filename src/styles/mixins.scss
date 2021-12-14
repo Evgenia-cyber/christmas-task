@@ -44,3 +44,8 @@
     color: $hover-color;
   }
 }
+
+@mixin setting-title() {
+  width: 285px;
+  font-weight: 400;
+}

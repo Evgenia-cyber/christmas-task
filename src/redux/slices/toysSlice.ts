@@ -18,7 +18,7 @@ const initialState: CounterState = {
   isLoading: false,
   selectedToysNums: initSelectedToysNums,
   isShowPopup: false,
-  settings: { quantityFilter: initSettings.quantity },
+  settings: initSettings,
 };
 
 export const toysSlice = createSlice({
@@ -33,6 +33,12 @@ export const toysSlice = createSlice({
     },
     setToys: (state, action: PayloadAction<Array<IToy>>) => {
       let toys = action.payload;
+
+      // filter toys according to settings
+      const { quantityFilter } = state.settings;
+      toys = toys.filter((toy) => Number(toy.count) >= quantityFilter[0] && Number(toy.count) <= quantityFilter[1]);
+
+      // indicate selected toys
       const { selectedToysNums } = state;
       if (selectedToysNums.length > 0) {
         toys = setIsSelectedForSelectedToys(toys, selectedToysNums);

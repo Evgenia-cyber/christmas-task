@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import PageTemplate from '../../components/PageTemplate/PageTemplate';
 import Popup from '../../components/Popup/Popup';
 import SelectedToysCount from '../../components/SelectedToysCount/SelectedToysCount';
-// import Settings from '../../components/Settings/Settings';
+import Settings from '../../components/Settings/Settings';
 import ToysCards from '../../components/ToysCards/ToysCards';
 import { isShowPopupSlice } from '../../redux/slices/toysSlice';
 
@@ -19,7 +19,7 @@ const ToysPage: FC = () => {
           <SelectedToysCount />
           <ToysCards />
         </div>
-        {/* <Settings /> */}
+        <Settings />
       </div>
       {isShowPopup && <Popup />}
     </PageTemplate>

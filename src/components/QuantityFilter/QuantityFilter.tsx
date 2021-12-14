@@ -15,8 +15,8 @@ const QuantityFilter: FC<Props> = ({ value, setValue }: Props) => {
   };
 
   return (
-    <div className="quantity-filter">
-      <h3 className="filter-title">Количество экземпляров:</h3>
+    <div className="setting">
+      <h3 className="setting-title">Количество экземпляров:</h3>
       <RangeSlider
         minValue={MIN_QUANTITY}
         maxValue={MAX_QUANTITY}

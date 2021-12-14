@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSettings, settingsSlice } from '../../redux/slices/toysSlice';
+import { fetchToysData, setSettings, settingsSlice } from '../../redux/slices/toysSlice';
 import { BUTTON_TYPES, ISettings } from '../../types/common';
 import Button from '../Button/Button';
 import QuantityFilter from '../QuantityFilter/QuantityFilter';
@@ -18,8 +18,8 @@ const Settings: FC = () => {
     const newSettings: ISettings = {
       quantityFilter,
     };
-    console.log('apply', quantityFilter);
     dispatch(setSettings(newSettings));
+    dispatch(fetchToysData());
   };
 
   return (
