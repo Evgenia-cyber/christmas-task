@@ -1,0 +1,9 @@
+.settings-container {
+  flex-basis: 300px;
+  flex-grow: 1;
+  @include card-overlay();
+  padding: 5px;
+  border-radius: 5px;
+  border: $button-border;
+  text-align: center;
+}

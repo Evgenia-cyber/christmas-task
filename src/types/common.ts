@@ -15,3 +15,7 @@ export interface IToy {
   favorite: boolean;
   isSelected?: boolean;
 }
+
+export interface ISettings {
+  quantityFilter: Array<number>;
+}

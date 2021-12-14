@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { DATA_URL, SELECTED_TOYS_MAX_COUNT } from '../../constants';
-import { IToy } from '../../types/common';
+import { ISettings, IToy } from '../../types/common';
 import getSelectedToysCount from '../../utils/getSelectedToysCount';
+import { initSelectedToysCount, initSettings, initToys } from '../initState';
 import { AppThunk, RootState } from '../store';
 
 interface CounterState {
@@ -9,17 +10,15 @@ interface CounterState {
   isLoading: boolean;
   selectedToysCount: number;
   isShowPopup: boolean;
+  settings: ISettings;
 }
-
-const toysFromLocalStorage = localStorage.getItem('toys');
-const initToys = toysFromLocalStorage ? JSON.parse(toysFromLocalStorage) : [];
-const initSelectedToysCount = initToys.length > 0 ? getSelectedToysCount(initToys) : 0;
 
 const initialState: CounterState = {
   toys: initToys,
   isLoading: false,
   selectedToysCount: initSelectedToysCount,
   isShowPopup: false,
+  settings: { quantityFilter: initSettings.quantity },
 };
 
 export const toysSlice = createSlice({
@@ -34,6 +33,11 @@ export const toysSlice = createSlice({
     },
     setToys: (state, action: PayloadAction<Array<IToy>>) => {
       state.toys = action.payload;
+    },
+    setSettings: (state, action: PayloadAction<ISettings>) => {
+      const newSettings = action.payload;
+      state.settings = newSettings;
+      localStorage.setItem('settings', JSON.stringify(newSettings));
     },
     toogleIsSelectedOfToy: (state, action: PayloadAction<string>) => {
       const selectedToyNum = Number(action.payload);
@@ -53,7 +57,7 @@ export const toysSlice = createSlice({
   },
 });
 
-export const { setIsLoading, setIsShowPopup, setToys, toogleIsSelectedOfToy } = toysSlice.actions;
+export const { setIsLoading, setIsShowPopup, setToys, toogleIsSelectedOfToy, setSettings } = toysSlice.actions;
 
 export const fetchToysData = (): AppThunk => async (dispatch) => {
   dispatch(setIsLoading(true));
@@ -72,5 +76,6 @@ export const toysArrSlice = (state: RootState): Array<IToy> => state.toys.toys;
 export const isLoadingSlice = (state: RootState): boolean => state.toys.isLoading;
 export const selectedToysCountSlice = (state: RootState): number => state.toys.selectedToysCount;
 export const isShowPopupSlice = (state: RootState): boolean => state.toys.isShowPopup;
+export const settingsSlice = (state: RootState): ISettings => state.toys.settings;
 
 export default toysSlice.reducer;
