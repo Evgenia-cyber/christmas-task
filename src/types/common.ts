@@ -18,4 +18,5 @@ export interface IToy {
 
 export interface ISettings {
   quantityFilter: Array<number>;
+  yearFilter: Array<number>;
 }

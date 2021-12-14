@@ -16,6 +16,9 @@ const SELECTED_TOYS_MAX_COUNT = 20;
 const MIN_QUANTITY = 1;
 const MAX_QUANTITY = 12;
 
+const MIN_YEAR = 1940;
+const MAX_YEAR = 2020;
+
 export {
   HOME_PAGE_PATH,
   TOYS_PAGE_PATH,
@@ -26,4 +29,6 @@ export {
   SELECTED_TOYS_MAX_COUNT,
   MIN_QUANTITY,
   MAX_QUANTITY,
+  MIN_YEAR,
+  MAX_YEAR,
 };
