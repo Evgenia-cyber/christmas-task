@@ -35,14 +35,16 @@ export const toysSlice = createSlice({
       let toys = action.payload;
 
       // filter toys according to settings
-      const { quantityFilter, yearFilter } = state.settings;
-      console.log(yearFilter);
+      const { quantityFilter, yearFilter, colorFilter } = state.settings;
+      const colors = Object.values(colorFilter);
+
       toys = toys.filter(
         (toy) =>
           Number(toy.count) >= quantityFilter[0] &&
           Number(toy.count) <= quantityFilter[1] &&
           Number(toy.year) >= yearFilter[0] &&
-          Number(toy.year) <= yearFilter[1],
+          Number(toy.year) <= yearFilter[1] &&
+          colors.includes(toy.color),
       );
 
       // indicate selected toys

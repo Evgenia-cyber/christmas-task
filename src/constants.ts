@@ -1,3 +1,5 @@
+import { COLORS, IColor } from './types/common';
+
 const HOME_PAGE_PATH = '/';
 const TOYS_PAGE_PATH = 'toys';
 const GAME_PAGE_PATH = 'game';
@@ -19,6 +21,20 @@ const MAX_QUANTITY = 12;
 const MIN_YEAR = 1940;
 const MAX_YEAR = 2020;
 
+// const WHITE = 'белый';
+// const YELLOW = 'желтый';
+// const RED = 'красный';
+// const BLUE = 'синий';
+// const GREEN = 'зеленый';
+
+const ALL_COLORS: IColor = {
+  white: COLORS.WHITE,
+  yellow: COLORS.YELLOW,
+  red: COLORS.RED,
+  blue: COLORS.BLUE,
+  green: COLORS.GREEN,
+};
+
 export {
   HOME_PAGE_PATH,
   TOYS_PAGE_PATH,
@@ -31,4 +47,10 @@ export {
   MAX_QUANTITY,
   MIN_YEAR,
   MAX_YEAR,
+  // WHITE,
+  // YELLOW,
+  // RED,
+  // BLUE,
+  // GREEN,
+  ALL_COLORS,
 };

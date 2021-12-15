@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchToysData, setSettings, settingsSlice } from '../../redux/slices/toysSlice';
 import { BUTTON_TYPES, ISettings } from '../../types/common';
 import Button from '../Button/Button';
+import ColorFilter from '../ColorFilter/ColorFilter';
 import QuantityFilter from '../QuantityFilter/QuantityFilter';
 import YearFilter from '../YearFilter/YearFilter';
 
@@ -17,10 +18,13 @@ const Settings: FC = () => {
 
   const [yearFilter, setYearFilter] = React.useState(settings.yearFilter);
 
+  const [colorFilter, setColorFilter] = React.useState(settings.colorFilter);
+
   const onApplyBtnClickHandler = () => {
     const newSettings: ISettings = {
       quantityFilter,
       yearFilter,
+      colorFilter,
     };
     dispatch(setSettings(newSettings));
     dispatch(fetchToysData());
@@ -28,6 +32,7 @@ const Settings: FC = () => {
 
   return (
     <div className="settings-container">
+      <ColorFilter value={colorFilter} setValue={setColorFilter} />
       <QuantityFilter value={quantityFilter} setValue={setQuantityFilter} />
       <YearFilter value={yearFilter} setValue={setYearFilter} />
       <div>

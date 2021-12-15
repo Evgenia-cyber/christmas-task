@@ -1,0 +1,52 @@
+.setting-title {
+  @include setting-title();
+}
+
+.white,
+.yellow,
+.red,
+.blue,
+.green {
+  position: relative;
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.white.active::after,
+.yellow.active::after,
+.red.active::after,
+.blue.active::after,
+.green.active::after {
+  content: '✔';
+  position: absolute;
+  font-size: 20px;
+}
+
+.white {
+  background-color: #ffffff;
+}
+
+.yellow {
+  background-color: #e7e43f;
+}
+
+.red {
+  background-color: #e62121;
+}
+
+.blue {
+  background-color: #1f23f1;
+}
+
+.green {
+  background-color: #17bb3a;
+}
