@@ -1,4 +1,4 @@
-import { ISettings } from '../types/common';
+import { ISettings, SORTINGS } from '../types/common';
 import { MAX_QUANTITY, MAX_YEAR, MIN_QUANTITY, MIN_YEAR } from '../constants';
 
 const selectedToysNumsFromLocalStorage = localStorage.getItem('toysNums');
@@ -12,6 +12,7 @@ const defaultSettings: ISettings = {
   sizeFilter: {},
   shapeFilter: {},
   favoriteFilter: false,
+  sorting: SORTINGS.NAME_FROM_A,
 };
 const initSettings = settingsFromLocalStorage ? JSON.parse(settingsFromLocalStorage) : defaultSettings;
 

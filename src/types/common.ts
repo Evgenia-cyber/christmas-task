@@ -25,6 +25,13 @@ export enum SHAPES {
   TOY = 'фигурка',
 }
 
+export enum SORTINGS {
+  NAME_FROM_A = 'По названию от „А“ до „Я“',
+  NAME_FROM_Z = 'По названию от „Я“ до „А“',
+  COUNT_UP = 'По количеству по возрастанию',
+  COUNT_DOWN = 'По количеству по убыванию',
+}
+
 // Расширяя IColor Record<string, any>, вы
 // позволяете объекту содержать другие string
 // ключи any значений наряду с определенными
@@ -71,4 +78,5 @@ export interface ISettings {
   sizeFilter: ISize;
   shapeFilter: IShape;
   favoriteFilter: boolean;
+  sorting: SORTINGS;
 }

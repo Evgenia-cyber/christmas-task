@@ -8,6 +8,7 @@ import FavoriteFilter from '../FavoriteFilter/FavoriteFilter';
 import QuantityFilter from '../QuantityFilter/QuantityFilter';
 import ShapeFilter from '../ShapeFilter/ShapeFilter';
 import SizeFilter from '../SizeFilter/SizeFilter';
+import Sorting from '../Sorting/Sorting';
 import YearFilter from '../YearFilter/YearFilter';
 
 import './Settings.scss';
@@ -29,6 +30,8 @@ const Settings: FC = () => {
 
   const [favoriteFilter, setFavoriteFilter] = React.useState(settings.favoriteFilter);
 
+  const [activeSorting, setActiveSorting] = React.useState(settings.sorting);
+
   const onApplyBtnClickHandler = () => {
     const newSettings: ISettings = {
       quantityFilter,
@@ -37,6 +40,7 @@ const Settings: FC = () => {
       sizeFilter,
       shapeFilter,
       favoriteFilter,
+      sorting: activeSorting,
     };
     dispatch(setSettings(newSettings));
     dispatch(fetchToysData());
@@ -45,12 +49,13 @@ const Settings: FC = () => {
   return (
     <div>
       <div className="settings-container">
+        <Sorting value={activeSorting} setValue={setActiveSorting} />
         <ColorFilter value={colorFilter} setValue={setColorFilter} />
-        <FavoriteFilter value={favoriteFilter} setValue={setFavoriteFilter} />
         <SizeFilter value={sizeFilter} setValue={setSizeFilter} />
         <ShapeFilter value={shapeFilter} setValue={setShapeFilter} />
         <QuantityFilter value={quantityFilter} setValue={setQuantityFilter} />
         <YearFilter value={yearFilter} setValue={setYearFilter} />
+        <FavoriteFilter value={favoriteFilter} setValue={setFavoriteFilter} />
       </div>
       <div>
         <Button text="Применить" type={BUTTON_TYPES.BUTTON} onClick={onApplyBtnClickHandler} />

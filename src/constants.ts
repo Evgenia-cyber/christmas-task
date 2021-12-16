@@ -1,4 +1,4 @@
-import { COLORS, IColor, ISize, SIZES, IShape, SHAPES } from './types/common';
+import { COLORS, IColor, ISize, SIZES, IShape, SHAPES, SORTINGS } from './types/common';
 
 const HOME_PAGE_PATH = '/';
 const TOYS_PAGE_PATH = 'toys';
@@ -43,6 +43,8 @@ const ALL_SHAPES: IShape = {
   toy: SHAPES.TOY,
 };
 
+const ALL_SORTINGS = [SORTINGS.NAME_FROM_A, SORTINGS.NAME_FROM_Z, SORTINGS.COUNT_UP, SORTINGS.COUNT_DOWN];
+
 export {
   HOME_PAGE_PATH,
   TOYS_PAGE_PATH,
@@ -58,4 +60,5 @@ export {
   ALL_COLORS,
   ALL_SIZES,
   ALL_SHAPES,
+  ALL_SORTINGS,
 };

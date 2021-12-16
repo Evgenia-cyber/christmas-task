@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ALL_COLORS, ALL_SHAPES, ALL_SIZES, DATA_URL, SELECTED_TOYS_MAX_COUNT } from '../../constants';
 import { ISettings, IToy } from '../../types/common';
 import getFiltersArrFromObj from '../../utils/getFiltersArrFromObj';
+import getSortingFunc from '../../utils/getSortingFunc';
 import setIsSelectedForSelectedToys from '../../utils/setIsSelectedForSelectedToys';
 import { initSelectedToysNums, initSettings } from '../initState';
 import { AppThunk, RootState } from '../store';
@@ -36,22 +37,26 @@ export const toysSlice = createSlice({
       let toys = action.payload;
 
       // filter toys according to settings
-      const { quantityFilter, yearFilter, colorFilter, sizeFilter, shapeFilter, favoriteFilter } = state.settings;
+      const { quantityFilter, yearFilter, colorFilter, sizeFilter, shapeFilter, favoriteFilter, sorting } =
+        state.settings;
       const colors = getFiltersArrFromObj(colorFilter, ALL_COLORS);
       const sizes = getFiltersArrFromObj(sizeFilter, ALL_SIZES);
       const shapes = getFiltersArrFromObj(shapeFilter, ALL_SHAPES);
+      const sortingFunc = getSortingFunc(sorting);
 
-      toys = toys.filter(
-        (toy) =>
-          Number(toy.count) >= quantityFilter[0] &&
-          Number(toy.count) <= quantityFilter[1] &&
-          Number(toy.year) >= yearFilter[0] &&
-          Number(toy.year) <= yearFilter[1] &&
-          colors.includes(toy.color) &&
-          sizes.includes(toy.size) &&
-          shapes.includes(toy.shape) &&
-          (favoriteFilter ? favoriteFilter === toy.favorite : toy),
-      );
+      toys = toys
+        .filter(
+          (toy) =>
+            Number(toy.count) >= quantityFilter[0] &&
+            Number(toy.count) <= quantityFilter[1] &&
+            Number(toy.year) >= yearFilter[0] &&
+            Number(toy.year) <= yearFilter[1] &&
+            colors.includes(toy.color) &&
+            sizes.includes(toy.size) &&
+            shapes.includes(toy.shape) &&
+            (favoriteFilter ? favoriteFilter === toy.favorite : toy),
+        )
+        .sort(sortingFunc);
 
       // indicate selected toys
       const { selectedToysNums } = state;
