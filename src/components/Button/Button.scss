@@ -1,11 +1,12 @@
 .button {
+  width: $panel-width;
   padding: $button-padding;
   color: $font-color;
   font-size: $button-font-size;
   letter-spacing: $button-letter-spacing;
   text-shadow: $titde-text-shadow;
   @include overlay();
-  border-radius: 50px;
+  border-radius: 5px;
   border: $button-border;
   transition: background-color $transition-duration;
   &:hover {

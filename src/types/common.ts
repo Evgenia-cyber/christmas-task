@@ -12,6 +12,12 @@ export enum COLORS {
   GREEN = 'зелёный',
 }
 
+export enum SIZES {
+  LARGE = 'большой',
+  MEDIUM = 'средний',
+  SMALL = 'маленький',
+}
+
 // Расширяя IColor Record<string, any>, вы
 // позволяете объекту содержать другие string
 // ключи any значений наряду с определенными
@@ -25,6 +31,12 @@ export interface IColor extends Record<string, any> {
   green?: COLORS.GREEN;
 }
 
+export interface ISize extends Record<string, any> {
+  large?: SIZES.LARGE;
+  medium?: SIZES.MEDIUM;
+  small?: SIZES.SMALL;
+}
+
 export interface IToy {
   num: string;
   name: string;
@@ -32,7 +44,7 @@ export interface IToy {
   year: string;
   shape: string;
   color: COLORS;
-  size: string;
+  size: SIZES;
   favorite: boolean;
   isSelected?: boolean;
 }
@@ -41,4 +53,5 @@ export interface ISettings {
   quantityFilter: Array<number>;
   yearFilter: Array<number>;
   colorFilter: IColor;
+  sizeFilter: ISize;
 }

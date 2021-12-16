@@ -5,6 +5,7 @@ import { BUTTON_TYPES, ISettings } from '../../types/common';
 import Button from '../Button/Button';
 import ColorFilter from '../ColorFilter/ColorFilter';
 import QuantityFilter from '../QuantityFilter/QuantityFilter';
+import SizeFilter from '../SizeFilter/SizeFilter';
 import YearFilter from '../YearFilter/YearFilter';
 
 import './Settings.scss';
@@ -20,21 +21,27 @@ const Settings: FC = () => {
 
   const [colorFilter, setColorFilter] = React.useState(settings.colorFilter);
 
+  const [sizeFilter, setSizeFilter] = React.useState(settings.sizeFilter);
+
   const onApplyBtnClickHandler = () => {
     const newSettings: ISettings = {
       quantityFilter,
       yearFilter,
       colorFilter,
+      sizeFilter,
     };
     dispatch(setSettings(newSettings));
     dispatch(fetchToysData());
   };
 
   return (
-    <div className="settings-container">
-      <ColorFilter value={colorFilter} setValue={setColorFilter} />
-      <QuantityFilter value={quantityFilter} setValue={setQuantityFilter} />
-      <YearFilter value={yearFilter} setValue={setYearFilter} />
+    <div>
+      <div className="settings-container">
+        <ColorFilter value={colorFilter} setValue={setColorFilter} />
+        <SizeFilter value={sizeFilter} setValue={setSizeFilter} />
+        <QuantityFilter value={quantityFilter} setValue={setQuantityFilter} />
+        <YearFilter value={yearFilter} setValue={setYearFilter} />
+      </div>
       <div>
         <Button text="Применить" type={BUTTON_TYPES.BUTTON} onClick={onApplyBtnClickHandler} />
       </div>

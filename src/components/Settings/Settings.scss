@@ -1,5 +1,6 @@
 .settings-container {
   @include card-overlay();
+  margin-bottom: 10px;
   padding: 5px;
   border-radius: 5px;
   border: $button-border;

@@ -9,6 +9,7 @@ const defaultSettings: ISettings = {
   quantityFilter: [MIN_QUANTITY, MAX_QUANTITY],
   yearFilter: [MIN_YEAR, MAX_YEAR],
   colorFilter: {},
+  sizeFilter: {},
 };
 const initSettings = settingsFromLocalStorage ? JSON.parse(settingsFromLocalStorage) : defaultSettings;
 
