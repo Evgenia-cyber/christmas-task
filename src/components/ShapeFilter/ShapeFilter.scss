@@ -1,0 +1,12 @@
+.setting-title {
+  @include setting-title();
+}
+
+.shape-btn {
+  height: $menu-icons-height;
+  @include icon-btn();
+}
+
+.shape-btn.active {
+  filter: $icons-filter;
+}

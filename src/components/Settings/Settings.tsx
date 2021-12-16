@@ -5,6 +5,7 @@ import { BUTTON_TYPES, ISettings } from '../../types/common';
 import Button from '../Button/Button';
 import ColorFilter from '../ColorFilter/ColorFilter';
 import QuantityFilter from '../QuantityFilter/QuantityFilter';
+import ShapeFilter from '../ShapeFilter/ShapeFilter';
 import SizeFilter from '../SizeFilter/SizeFilter';
 import YearFilter from '../YearFilter/YearFilter';
 
@@ -23,12 +24,15 @@ const Settings: FC = () => {
 
   const [sizeFilter, setSizeFilter] = React.useState(settings.sizeFilter);
 
+  const [shapeFilter, setShapeFilter] = React.useState(settings.sizeFilter);
+
   const onApplyBtnClickHandler = () => {
     const newSettings: ISettings = {
       quantityFilter,
       yearFilter,
       colorFilter,
       sizeFilter,
+      shapeFilter,
     };
     dispatch(setSettings(newSettings));
     dispatch(fetchToysData());
@@ -39,6 +43,7 @@ const Settings: FC = () => {
       <div className="settings-container">
         <ColorFilter value={colorFilter} setValue={setColorFilter} />
         <SizeFilter value={sizeFilter} setValue={setSizeFilter} />
+        <ShapeFilter value={shapeFilter} setValue={setShapeFilter} />
         <QuantityFilter value={quantityFilter} setValue={setQuantityFilter} />
         <YearFilter value={yearFilter} setValue={setYearFilter} />
       </div>

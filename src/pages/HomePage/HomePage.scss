@@ -5,7 +5,7 @@
   font-size: 45px;
   letter-spacing: 4px;
   text-shadow: $titde-text-shadow;
-  border-radius: 15px;
+  border-radius: 10px;
   @include overlay();
   border: $overlay-border;
 }

@@ -10,6 +10,7 @@ const defaultSettings: ISettings = {
   yearFilter: [MIN_YEAR, MAX_YEAR],
   colorFilter: {},
   sizeFilter: {},
+  shapeFilter: {},
 };
 const initSettings = settingsFromLocalStorage ? JSON.parse(settingsFromLocalStorage) : defaultSettings;
 

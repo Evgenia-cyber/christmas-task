@@ -1,4 +1,4 @@
-import { COLORS, IColor, ISize, SIZES } from './types/common';
+import { COLORS, IColor, ISize, SIZES, IShape, SHAPES } from './types/common';
 
 const HOME_PAGE_PATH = '/';
 const TOYS_PAGE_PATH = 'toys';
@@ -35,6 +35,14 @@ const ALL_SIZES: ISize = {
   small: SIZES.SMALL,
 };
 
+const ALL_SHAPES: IShape = {
+  ball: SHAPES.BALL,
+  bell: SHAPES.BELL,
+  cone: SHAPES.CONE,
+  snowflake: SHAPES.SNOWFLAKE,
+  toy: SHAPES.TOY,
+};
+
 export {
   HOME_PAGE_PATH,
   TOYS_PAGE_PATH,
@@ -49,4 +57,5 @@ export {
   MAX_YEAR,
   ALL_COLORS,
   ALL_SIZES,
+  ALL_SHAPES,
 };

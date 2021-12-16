@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ALL_COLORS, ALL_SIZES, DATA_URL, SELECTED_TOYS_MAX_COUNT } from '../../constants';
+import { ALL_COLORS, ALL_SHAPES, ALL_SIZES, DATA_URL, SELECTED_TOYS_MAX_COUNT } from '../../constants';
 import { ISettings, IToy } from '../../types/common';
 import getFiltersArrFromObj from '../../utils/getFiltersArrFromObj';
 import setIsSelectedForSelectedToys from '../../utils/setIsSelectedForSelectedToys';
@@ -36,9 +36,10 @@ export const toysSlice = createSlice({
       let toys = action.payload;
 
       // filter toys according to settings
-      const { quantityFilter, yearFilter, colorFilter, sizeFilter } = state.settings;
+      const { quantityFilter, yearFilter, colorFilter, sizeFilter, shapeFilter } = state.settings;
       const colors = getFiltersArrFromObj(colorFilter, ALL_COLORS);
       const sizes = getFiltersArrFromObj(sizeFilter, ALL_SIZES);
+      const shapes = getFiltersArrFromObj(shapeFilter, ALL_SHAPES);
 
       toys = toys.filter(
         (toy) =>
@@ -47,7 +48,8 @@ export const toysSlice = createSlice({
           Number(toy.year) >= yearFilter[0] &&
           Number(toy.year) <= yearFilter[1] &&
           colors.includes(toy.color) &&
-          sizes.includes(toy.size),
+          sizes.includes(toy.size) &&
+          shapes.includes(toy.shape),
       );
 
       // indicate selected toys

@@ -17,6 +17,13 @@ export enum SIZES {
   MEDIUM = 'средний',
   SMALL = 'маленький',
 }
+export enum SHAPES {
+  BALL = 'шар',
+  BELL = 'колокольчик',
+  CONE = 'шишка',
+  SNOWFLAKE = 'снежинка',
+  TOY = 'фигурка',
+}
 
 // Расширяя IColor Record<string, any>, вы
 // позволяете объекту содержать другие string
@@ -37,12 +44,20 @@ export interface ISize extends Record<string, any> {
   small?: SIZES.SMALL;
 }
 
+export interface IShape extends Record<string, any> {
+  ball?: SHAPES.BALL;
+  bell?: SHAPES.BELL;
+  cone?: SHAPES.CONE;
+  snowflake?: SHAPES.SNOWFLAKE;
+  toy?: SHAPES.TOY;
+}
+
 export interface IToy {
   num: string;
   name: string;
   count: string;
   year: string;
-  shape: string;
+  shape: SHAPES;
   color: COLORS;
   size: SIZES;
   favorite: boolean;
@@ -54,4 +69,5 @@ export interface ISettings {
   yearFilter: Array<number>;
   colorFilter: IColor;
   sizeFilter: ISize;
+  shapeFilter: IShape;
 }

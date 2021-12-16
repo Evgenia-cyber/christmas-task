@@ -1,6 +1,6 @@
-import { IColor, ISize } from '../types/common';
+import { IShape, IColor, ISize } from '../types/common';
 
-type Filter = IColor | ISize;
+type Filter = IColor | ISize | IShape;
 
 const getFiltersArrFromObj = (currentFiltresObj: Filter, allFiltersObj: Filter) => {
   let filters = Object.values(currentFiltresObj);

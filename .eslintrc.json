@@ -54,7 +54,7 @@
     "max-len": ["error", { "code": 120 }],
     "no-param-reassign": ["error", { "props": false }],
     "operator-linebreak": "off",
-    "indent": ["error", 2, { "SwitchCase": 2, "MemberExpression": "off" }],
+    "indent": ["error", 2, { "SwitchCase": 1, "MemberExpression": "off" }],
     "react/jsx-one-expression-per-line": "off",
     "implicit-arrow-linebreak": "off"
   },
