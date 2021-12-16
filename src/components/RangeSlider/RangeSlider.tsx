@@ -29,7 +29,7 @@ const RangeSlider: FC<Props> = ({ minValue, maxValue, value, onChangeHandler, un
         min={minValue}
         max={maxValue}
         onChange={onChangeHandler}
-        defaultValue={value}
+        value={value}
         tipFormatter={setTooltip}
         tipProps={{
           placement: 'top',

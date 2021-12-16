@@ -14,3 +14,9 @@
 .setting-title {
   @include setting-title();
 }
+
+.settings-buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

@@ -4,7 +4,7 @@ import { ISettings, IToy } from '../../types/common';
 import getFiltersArrFromObj from '../../utils/getFiltersArrFromObj';
 import getSortingFunc from '../../utils/getSortingFunc';
 import setIsSelectedForSelectedToys from '../../utils/setIsSelectedForSelectedToys';
-import { initSelectedToysNums, initSettings } from '../initState';
+import { defaultSettings, initSelectedToysNums, initSettings } from '../initState';
 import { AppThunk, RootState } from '../store';
 
 interface CounterState {
@@ -70,6 +70,19 @@ export const toysSlice = createSlice({
       state.settings = newSettings;
       localStorage.setItem('settings', JSON.stringify(newSettings));
     },
+    resetFilters: (state) => {
+      const { sorting } = state.settings;
+      const resetSettings = { ...defaultSettings, sorting };
+
+      localStorage.setItem('settings', JSON.stringify(resetSettings));
+      state.settings = resetSettings;
+    },
+    resetSettings: (state) => {
+      localStorage.removeItem('toysNums');
+      localStorage.removeItem('settings');
+      state.selectedToysNums = [];
+      state.settings = defaultSettings;
+    },
     toogleIsSelectedOfToy: (state, action: PayloadAction<string>) => {
       const selectedToyNum = action.payload;
       const { toys, selectedToysNums } = state;
@@ -98,7 +111,15 @@ export const toysSlice = createSlice({
   },
 });
 
-export const { setIsLoading, setIsShowPopup, setToys, toogleIsSelectedOfToy, setSettings } = toysSlice.actions;
+export const {
+  setIsLoading,
+  setIsShowPopup,
+  setToys,
+  toogleIsSelectedOfToy,
+  setSettings,
+  resetFilters,
+  resetSettings,
+} = toysSlice.actions;
 
 export const fetchToysData = (): AppThunk => async (dispatch) => {
   dispatch(setIsLoading(true));

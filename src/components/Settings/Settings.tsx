@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchToysData, setSettings, settingsSlice } from '../../redux/slices/toysSlice';
+import { defaultSettings } from '../../redux/initState';
+import { fetchToysData, resetFilters, resetSettings, setSettings, settingsSlice } from '../../redux/slices/toysSlice';
 import { BUTTON_TYPES, ISettings } from '../../types/common';
 import Button from '../Button/Button';
 import ColorFilter from '../ColorFilter/ColorFilter';
@@ -46,6 +47,32 @@ const Settings: FC = () => {
     dispatch(fetchToysData());
   };
 
+  const resetLocalStateFilters = () => {
+    setColorFilter(defaultSettings.colorFilter);
+    setSizeFilter(defaultSettings.sizeFilter);
+    setShapeFilter(defaultSettings.shapeFilter);
+    setQuantityFilter(defaultSettings.quantityFilter);
+    setYearFilter(defaultSettings.yearFilter);
+    setFavoriteFilter(defaultSettings.favoriteFilter);
+  };
+
+  const resetLocalStateAllSettings = () => {
+    resetLocalStateFilters();
+    setActiveSorting(defaultSettings.sorting);
+  };
+
+  const onResetFiltersBtnClickHandler = () => {
+    dispatch(resetFilters());
+    dispatch(fetchToysData());
+    resetLocalStateFilters();
+  };
+
+  const onResetAllBtnClickHandler = () => {
+    dispatch(resetSettings());
+    dispatch(fetchToysData());
+    resetLocalStateAllSettings();
+  };
+
   return (
     <div>
       <div className="settings-container">
@@ -57,8 +84,10 @@ const Settings: FC = () => {
         <YearFilter value={yearFilter} setValue={setYearFilter} />
         <FavoriteFilter value={favoriteFilter} setValue={setFavoriteFilter} />
       </div>
-      <div>
+      <div className="settings-buttons">
         <Button text="Применить" type={BUTTON_TYPES.BUTTON} onClick={onApplyBtnClickHandler} />
+        <Button text="Сбросить фильтры" type={BUTTON_TYPES.BUTTON} onClick={onResetFiltersBtnClickHandler} />
+        <Button text="Сбросить все настройки" type={BUTTON_TYPES.BUTTON} onClick={onResetAllBtnClickHandler} />
       </div>
     </div>
   );

@@ -16,4 +16,4 @@ const defaultSettings: ISettings = {
 };
 const initSettings = settingsFromLocalStorage ? JSON.parse(settingsFromLocalStorage) : defaultSettings;
 
-export { initSelectedToysNums, initSettings };
+export { initSelectedToysNums, initSettings, defaultSettings };
