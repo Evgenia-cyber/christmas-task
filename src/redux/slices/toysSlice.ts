@@ -50,7 +50,7 @@ export const toysSlice = createSlice({
           colors.includes(toy.color) &&
           sizes.includes(toy.size) &&
           shapes.includes(toy.shape) &&
-          favoriteFilter === toy.favorite,
+          (favoriteFilter ? favoriteFilter === toy.favorite : toy),
       );
 
       // indicate selected toys
