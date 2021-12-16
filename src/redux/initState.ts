@@ -11,6 +11,7 @@ const defaultSettings: ISettings = {
   colorFilter: {},
   sizeFilter: {},
   shapeFilter: {},
+  favoriteFilter: false,
 };
 const initSettings = settingsFromLocalStorage ? JSON.parse(settingsFromLocalStorage) : defaultSettings;
 

@@ -2,8 +2,6 @@ import React, { FC } from 'react';
 import { MAX_YEAR, MIN_YEAR } from '../../constants';
 import RangeSlider from '../RangeSlider/RangeSlider';
 
-import './YearFilter.scss';
-
 interface Props {
   value: Array<number>;
   setValue: React.Dispatch<React.SetStateAction<number[]>>;

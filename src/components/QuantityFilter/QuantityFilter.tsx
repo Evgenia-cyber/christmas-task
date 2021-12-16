@@ -2,8 +2,6 @@ import React, { FC } from 'react';
 import { MAX_QUANTITY, MIN_QUANTITY } from '../../constants';
 import RangeSlider from '../RangeSlider/RangeSlider';
 
-import './QuantityFilter.scss';
-
 interface Props {
   value: Array<number>;
   setValue: React.Dispatch<React.SetStateAction<number[]>>;

@@ -6,3 +6,11 @@
   border: $button-border;
   text-align: center;
 }
+
+.setting {
+  margin-bottom: 25px;
+}
+
+.setting-title {
+  @include setting-title();
+}

@@ -70,4 +70,5 @@ export interface ISettings {
   colorFilter: IColor;
   sizeFilter: ISize;
   shapeFilter: IShape;
+  favoriteFilter: boolean;
 }

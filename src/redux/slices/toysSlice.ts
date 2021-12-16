@@ -36,7 +36,7 @@ export const toysSlice = createSlice({
       let toys = action.payload;
 
       // filter toys according to settings
-      const { quantityFilter, yearFilter, colorFilter, sizeFilter, shapeFilter } = state.settings;
+      const { quantityFilter, yearFilter, colorFilter, sizeFilter, shapeFilter, favoriteFilter } = state.settings;
       const colors = getFiltersArrFromObj(colorFilter, ALL_COLORS);
       const sizes = getFiltersArrFromObj(sizeFilter, ALL_SIZES);
       const shapes = getFiltersArrFromObj(shapeFilter, ALL_SHAPES);
@@ -49,7 +49,8 @@ export const toysSlice = createSlice({
           Number(toy.year) <= yearFilter[1] &&
           colors.includes(toy.color) &&
           sizes.includes(toy.size) &&
-          shapes.includes(toy.shape),
+          shapes.includes(toy.shape) &&
+          favoriteFilter === toy.favorite,
       );
 
       // indicate selected toys
