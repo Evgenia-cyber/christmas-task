@@ -56,7 +56,8 @@
     "operator-linebreak": "off",
     "indent": ["error", 2, { "SwitchCase": 1, "MemberExpression": "off" }],
     "react/jsx-one-expression-per-line": "off",
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "no-confusing-arrow": "off"
   },
   "settings": {
     "import/resolver": {

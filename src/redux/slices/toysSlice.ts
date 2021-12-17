@@ -13,6 +13,8 @@ interface CounterState {
   selectedToysNums: Array<string>;
   isShowPopup: boolean;
   settings: ISettings;
+  searchInputValue: string;
+  searchedToys: Array<IToy>;
 }
 
 const initialState: CounterState = {
@@ -21,12 +23,20 @@ const initialState: CounterState = {
   selectedToysNums: initSelectedToysNums,
   isShowPopup: false,
   settings: initSettings,
+  searchInputValue: '',
+  searchedToys: [],
 };
 
 export const toysSlice = createSlice({
   name: 'toys',
   initialState,
   reducers: {
+    setSearchInputValue: (state, action: PayloadAction<string>) => {
+      const searchInputValue = action.payload;
+
+      state.searchInputValue = searchInputValue;
+      state.searchedToys = state.toys.filter((toy) => toy.name.toLowerCase().includes(searchInputValue.toLowerCase()));
+    },
     setIsLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },
@@ -112,6 +122,7 @@ export const toysSlice = createSlice({
 });
 
 export const {
+  setSearchInputValue,
   setIsLoading,
   setIsShowPopup,
   setToys,
@@ -134,10 +145,12 @@ export const fetchToysData = (): AppThunk => async (dispatch) => {
   dispatch(setIsLoading(false));
 };
 
-export const toysArrSlice = (state: RootState): Array<IToy> => state.toys.toys;
+export const toysArrSlice = (state: RootState): Array<IToy> =>
+  state.toys.searchInputValue ? state.toys.searchedToys : state.toys.toys;
 export const isLoadingSlice = (state: RootState): boolean => state.toys.isLoading;
 export const selectedToysCountSlice = (state: RootState): number => state.toys.selectedToysNums.length;
 export const isShowPopupSlice = (state: RootState): boolean => state.toys.isShowPopup;
 export const settingsSlice = (state: RootState): ISettings => state.toys.settings;
+export const searchInputValueSlice = (state: RootState): string => state.toys.searchInputValue;
 
 export default toysSlice.reducer;

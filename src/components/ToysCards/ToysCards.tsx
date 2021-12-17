@@ -20,6 +20,7 @@ const ToysCards: FC = () => {
 
   return (
     <div className="toys-cards">
+      {!isLoading && toys.length === 0 && <p className="no-toys">Таких игрушек нет!</p>}
       {isLoading ? (
         <Loader />
       ) : (

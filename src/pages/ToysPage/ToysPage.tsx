@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import PageTemplate from '../../components/PageTemplate/PageTemplate';
 import Popup from '../../components/Popup/Popup';
+import Search from '../../components/Search/Search';
 import SelectedToysCount from '../../components/SelectedToysCount/SelectedToysCount';
 import Settings from '../../components/Settings/Settings';
 import ToysCards from '../../components/ToysCards/ToysCards';
@@ -15,7 +16,8 @@ const ToysPage: FC = () => {
   return (
     <PageTemplate>
       <div className="page-content">
-        <div>
+        <div className="page-content-left">
+          <Search />
           <SelectedToysCount />
           <ToysCards />
         </div>
