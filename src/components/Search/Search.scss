@@ -1,10 +1,13 @@
 .search-form {
   display: flex;
+  position: relative;
 }
 
 .search-reset-btn {
+  position: absolute;
+  top: 13px;
+  right: 17px;
   @include icon-btn();
-  transform: translateX(-45px);
 }
 
 .search-input {
@@ -21,6 +24,10 @@
   background-repeat: no-repeat;
   background-size: 30px;
   background-position: 10px;
+  margin-right: 10px;
+  @media screen and (max-width: 1219px) {
+    margin-right: 0;
+  }
 }
 
 ::-webkit-input-placeholder {

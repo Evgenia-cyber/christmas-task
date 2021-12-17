@@ -1,3 +1,6 @@
 .selected-toys-count{
    font-size: $settings-font-size;
+   @media screen and (max-width: 1219px) {
+      text-align: center;
+    }
 }

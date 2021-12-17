@@ -2,6 +2,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin-right: 10px;
+  @media screen and (max-width: 1219px) {
+    justify-content: center;
+    margin-right: 0;
+  }
 }
 
 .no-toys {

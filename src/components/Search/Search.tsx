@@ -14,11 +14,9 @@ const Search: FC = () => {
     const { value: currentValue } = event.currentTarget;
 
     dispatch(setSearchInputValue(currentValue));
-    console.log(currentValue);
   };
 
   const handlerOnResetBtnClick = () => {
-    console.log('reset');
     dispatch(setSearchInputValue(''));
   };
 

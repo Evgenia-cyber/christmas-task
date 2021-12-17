@@ -5,6 +5,11 @@
   border-radius: 5px;
   border: $button-border;
   text-align: center;
+  @media screen and (max-width: 1219px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 }
 
 .setting {
@@ -19,4 +24,9 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  @media screen and (max-width: 1219px) {
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 30px;
+  }
 }
