@@ -21,6 +21,7 @@ module.exports = {
       template: './src/index.html', // местонахождение шаблона
       filename: './index.html', // куда положить build-версию
       minify: { collapseWhitespace: true },
+      favicon: 'src/assets/images/favicon.ico',
     }),
   ],
   optimization: {

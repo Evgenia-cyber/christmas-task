@@ -12,6 +12,10 @@ import './ToysPage.scss';
 
 const ToysPage: FC = () => {
   const isShowPopup = useSelector(isShowPopupSlice);
+  // eslint-disable-next-line no-console
+  console.log('Самооценка 200/220');
+  // eslint-disable-next-line no-console
+  console.log('Все основные пункты выполнены в полном объеме, кроме Дополнительный функционал на выбор');
 
   return (
     <PageTemplate>
