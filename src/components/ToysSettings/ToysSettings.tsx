@@ -12,7 +12,7 @@ import SizeFilter from '../SizeFilter/SizeFilter';
 import Sorting from '../Sorting/Sorting';
 import YearFilter from '../YearFilter/YearFilter';
 
-import './Settings.scss';
+import './ToysSettings.scss';
 
 const Settings: FC = () => {
   const dispatch = useDispatch();

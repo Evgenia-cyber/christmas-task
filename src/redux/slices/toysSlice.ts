@@ -7,7 +7,7 @@ import setIsSelectedForSelectedToys from '../../utils/setIsSelectedForSelectedTo
 import { defaultSettings, initSelectedToysNums, initSettings } from '../initState';
 import { AppThunk, RootState } from '../store';
 
-interface CounterState {
+interface IToysState {
   toys: Array<IToy>;
   isLoading: boolean;
   selectedToysNums: Array<string>;
@@ -17,7 +17,7 @@ interface CounterState {
   searchedToys: Array<IToy>;
 }
 
-const initialState: CounterState = {
+const initialState: IToysState = {
   toys: [],
   isLoading: false,
   selectedToysNums: initSelectedToysNums,

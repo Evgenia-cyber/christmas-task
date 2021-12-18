@@ -4,7 +4,7 @@ import PageTemplate from '../../components/PageTemplate/PageTemplate';
 import Popup from '../../components/Popup/Popup';
 import Search from '../../components/Search/Search';
 import SelectedToysCount from '../../components/SelectedToysCount/SelectedToysCount';
-import Settings from '../../components/Settings/Settings';
+import Settings from '../../components/ToysSettings/ToysSettings';
 import ToysCards from '../../components/ToysCards/ToysCards';
 import { isShowPopupSlice } from '../../redux/slices/toysSlice';
 
