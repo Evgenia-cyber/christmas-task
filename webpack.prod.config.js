@@ -9,7 +9,7 @@ module.exports = {
     ...commonConfig.output,
     path: path.resolve(__dirname, '../build'),
     filename: 'main.js',
-    publicPath: '',
+    publicPath: './',
     clean: true,
   },
   module: {

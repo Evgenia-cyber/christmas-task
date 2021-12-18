@@ -1,13 +1,10 @@
-// по дефолту webpack умеет обрабатывать js файлы. Для html, сss нужны плагины
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
-
 module.exports = {
   entry: './src/index.tsx', // стартовая точка, где хранится код приложения
   output: {
     assetModuleFilename: 'assets/[name][ext]',
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   module: {
     rules: [
@@ -44,10 +41,4 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html', // местонахождение шаблона
-      filename: './index.html', // куда положить build-версию
-    }),
-  ],
 };

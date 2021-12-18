@@ -10,7 +10,6 @@
   },
   "author": "Kurineva Evgenia",
   "license": "ISC",
-  "homepage": "https://github.com/Evgenia-cyber/christmas-task#readme",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
     "rc-slider": "^9.7.5",
