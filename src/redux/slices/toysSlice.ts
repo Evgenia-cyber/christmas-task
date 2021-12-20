@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ALL_COLORS, ALL_SHAPES, ALL_SIZES, DATA_URL, SELECTED_TOYS_MAX_COUNT } from '../../constants';
+import { ALL_COLORS, ALL_SHAPES, ALL_SIZES, SELECTED_TOYS_MAX_COUNT } from '../../constants';
+import fetchAllToysData from '../../services/api';
 import { ISettings, IToy } from '../../types/common';
 import getFiltersArrFromObj from '../../utils/getFiltersArrFromObj';
 import getSortingFunc from '../../utils/getSortingFunc';
@@ -134,14 +135,8 @@ export const {
 
 export const fetchToysData = (): AppThunk => async (dispatch) => {
   dispatch(setIsLoading(true));
-  try {
-    const response = await fetch(DATA_URL);
-    const data = await response.json();
-    dispatch(setToys(data));
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log(error);
-  }
+  const data = await fetchAllToysData();
+  dispatch(setToys(data));
   dispatch(setIsLoading(false));
 };
 

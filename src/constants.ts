@@ -12,6 +12,8 @@ const NAV_LINKS = [
 
 const DATA_URL = 'https://raw.githubusercontent.com/Evgenia-cyber/christmas-data/main/data.json';
 const TOY_IMAGE_URL = 'https://raw.githubusercontent.com/Evgenia-cyber/christmas-data/main/assets/toys';
+const BG_IMAGE_URL = 'https://raw.githubusercontent.com/Evgenia-cyber/christmas-data/main/assets/bg';
+const TREE_IMAGE_URL = 'https://raw.githubusercontent.com/Evgenia-cyber/christmas-data/main/assets/tree';
 
 const SELECTED_TOYS_MAX_COUNT = 20;
 
@@ -66,4 +68,6 @@ export {
   ALL_SORTINGS,
   SOUND_VOLUME,
   SOUND_URL,
+  BG_IMAGE_URL,
+  TREE_IMAGE_URL,
 };
