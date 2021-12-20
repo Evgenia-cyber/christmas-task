@@ -46,6 +46,7 @@ const ALL_SHAPES: IShape = {
 const ALL_SORTINGS = [SORTINGS.NAME_FROM_A, SORTINGS.NAME_FROM_Z, SORTINGS.COUNT_UP, SORTINGS.COUNT_DOWN];
 
 const SOUND_VOLUME = 0.3;
+const SOUND_URL = 'https://now.morsmusic.org/load/1137278702/Bobby_Helms..(musmore.com).mp3';
 
 export {
   HOME_PAGE_PATH,
@@ -64,4 +65,5 @@ export {
   ALL_SHAPES,
   ALL_SORTINGS,
   SOUND_VOLUME,
+  SOUND_URL,
 };

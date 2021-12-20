@@ -4,7 +4,6 @@ import { isAudioPlaySlice, toogleIsAudioPlay } from '../../redux/slices/commonSe
 import sound from '../../utils/sound';
 import snowImg from '../../assets/svg/snow.svg';
 import audioImg from '../../assets/svg/audio.svg';
-import soundPath from '../../assets/audio/audio.mp3';
 
 import './CommonSettings.scss';
 
@@ -20,7 +19,7 @@ const CommonSettings: FC = () => {
     if (isAudioPlay) {
       sound.stopSound();
     } else {
-      sound.playSound(soundPath);
+      sound.playSound();
     }
     dispatch(toogleIsAudioPlay(!isAudioPlay));
   };

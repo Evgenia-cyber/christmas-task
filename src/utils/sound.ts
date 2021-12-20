@@ -1,15 +1,15 @@
-import { SOUND_VOLUME } from '../constants';
+import { SOUND_URL, SOUND_VOLUME } from '../constants';
 
 type Sound = {
   audio: HTMLAudioElement | null;
-  playSound(path: string): void;
+  playSound(): void;
   stopSound(): void;
 };
 
 const sound: Sound = {
   audio: null,
-  playSound(path) {
-    const audio = new Audio(path);
+  playSound() {
+    const audio = new Audio(SOUND_URL);
     audio.volume = SOUND_VOLUME;
     audio.loop = true;
     const playPromise = audio.play();
