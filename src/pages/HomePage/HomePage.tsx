@@ -17,7 +17,17 @@ const HomePage: FC = () => {
 
   return (
     <Background isHomePage>
-      <Header />
+      <div
+        style={{
+          width: '90%',
+          position: 'absolute',
+          left: '5%',
+          right: '5%',
+          top: 0,
+        }}
+      >
+        <Header />
+      </div>
       <h1 className="home-title">
         Новогодняя игра
         <br />
