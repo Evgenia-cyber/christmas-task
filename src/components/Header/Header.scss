@@ -1,5 +1,6 @@
 .header {
   @include container();
+  width: 90%;
   height: $header-height;
   display: flex;
   justify-content: space-between;
