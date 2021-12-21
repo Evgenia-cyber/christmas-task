@@ -1,0 +1,26 @@
+.bg-btn {
+  flex-basis: 22%;
+  height: 60px;
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  box-sizing: border-box;
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    border: $button-border;
+    transition: border-color $transition-duration;
+    box-sizing: border-box;
+    &:hover {
+      cursor: pointer;
+      border-color: $hover-color;
+    }
+  }
+}
+
+.bg-btn.active img {
+  border-color: $hover-color;
+}

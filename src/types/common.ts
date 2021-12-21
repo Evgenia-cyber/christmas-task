@@ -83,4 +83,5 @@ export interface ISettings {
 
 export interface IGameSettings {
   activeTreeNum: string;
+  activeBgNum: string;
 }
