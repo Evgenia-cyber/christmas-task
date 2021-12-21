@@ -1,0 +1,11 @@
+.tree-btn {
+  flex-basis: 40%;
+  height: 130px;
+  @include game-setting-item();
+}
+
+.tree-btn.active {
+  & img {
+    filter: $icons-filter;
+  }
+}

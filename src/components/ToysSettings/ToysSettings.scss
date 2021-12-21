@@ -12,14 +12,6 @@
   }
 }
 
-.setting {
-  margin-bottom: 25px;
-}
-
-.setting-title {
-  @include setting-title();
-}
-
 .settings-buttons{
   display: flex;
   flex-direction: column;

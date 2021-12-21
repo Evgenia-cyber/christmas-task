@@ -17,7 +17,7 @@ const Sorting: FC<Props> = ({ value, setValue }: Props) => {
 
   return (
     <div className="setting">
-      <h3 className="setting-title sorting">Сортировать</h3>
+      <h3 className="setting-title sorting-setting-title">Сортировать</h3>
       <div>
         {ALL_SORTINGS.map((sorting) => (
           <button

@@ -1,5 +1,5 @@
-import { ISettings, SORTINGS } from '../types/common';
-import { MAX_QUANTITY, MAX_YEAR, MIN_QUANTITY, MIN_YEAR } from '../constants';
+import { IGameSettings, ISettings, SORTINGS } from '../types/common';
+import { DEFAULT_ACTIVE_TREE, MAX_QUANTITY, MAX_YEAR, MIN_QUANTITY, MIN_YEAR } from '../constants';
 
 const selectedToysNumsFromLocalStorage = localStorage.getItem('toysNums');
 const initSelectedToysNums = selectedToysNumsFromLocalStorage ? JSON.parse(selectedToysNumsFromLocalStorage) : [];
@@ -16,4 +16,10 @@ const defaultSettings: ISettings = {
 };
 const initSettings = settingsFromLocalStorage ? JSON.parse(settingsFromLocalStorage) : defaultSettings;
 
-export { initSelectedToysNums, initSettings, defaultSettings };
+const gameSettingsFromLocalStorage = localStorage.getItem('gameSettings');
+const defaultGameSettings: IGameSettings = {
+  activeTreeNum: DEFAULT_ACTIVE_TREE,
+};
+const initGameSettings = gameSettingsFromLocalStorage ? JSON.parse(gameSettingsFromLocalStorage) : defaultGameSettings;
+
+export { initSelectedToysNums, initSettings, defaultSettings, initGameSettings };

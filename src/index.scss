@@ -15,3 +15,20 @@ a {
   color: $font-color;
   text-decoration: none;
 }
+
+.page-content {
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: 1219px) {
+    flex-direction: column-reverse;
+  }
+}
+
+.setting {
+  margin-bottom: 25px;
+}
+
+.setting-title {
+  @include setting-title();
+}
+

@@ -80,3 +80,7 @@ export interface ISettings {
   favoriteFilter: boolean;
   sorting: SORTINGS;
 }
+
+export interface IGameSettings {
+  activeTreeNum: string;
+}

@@ -50,6 +50,9 @@ const ALL_SORTINGS = [SORTINGS.NAME_FROM_A, SORTINGS.NAME_FROM_Z, SORTINGS.COUNT
 const SOUND_VOLUME = 0.3;
 const SOUND_URL = 'https://now.morsmusic.org/load/1137278702/Bobby_Helms..(musmore.com).mp3';
 
+const TREE_COUNT = 4;
+const DEFAULT_ACTIVE_TREE = '1';
+
 export {
   HOME_PAGE_PATH,
   TOYS_PAGE_PATH,
@@ -70,4 +73,6 @@ export {
   SOUND_URL,
   BG_IMAGE_URL,
   TREE_IMAGE_URL,
+  TREE_COUNT,
+  DEFAULT_ACTIVE_TREE,
 };
