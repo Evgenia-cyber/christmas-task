@@ -1,12 +1,3 @@
 .game-settings-container{
-  margin-bottom: 10px;
-  padding: 5px;
-  border-radius: 5px;
-  border: $button-border;
-  text-align: center;
-  @media screen and (max-width: 1219px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
+@include game-aside-container();
 }

@@ -71,6 +71,12 @@ export interface IToy {
   isSelected?: boolean;
 }
 
+export interface IGameToy {
+  num: string;
+  countOfToysOnSlot: number;
+  countOfToysOnTree: number;
+}
+
 export interface ISettings {
   quantityFilter: Array<number>;
   yearFilter: Array<number>;

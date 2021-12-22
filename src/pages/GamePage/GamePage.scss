@@ -1,7 +1,11 @@
-// .page-content{
-//    display: flex;
-//    justify-content: space-between;
-//    @media screen and (max-width: 1219px) {
-//       flex-direction: column-reverse;
-//     }
-// }
+.page-content {
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: 1219px) {
+    flex-direction: column-reverse;
+  }
+}
+
+.page-content-right {
+  @include game-aside-container();
+}

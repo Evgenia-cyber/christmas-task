@@ -52,8 +52,11 @@ const SOUND_URL = 'https://now.morsmusic.org/load/1137278702/Bobby_Helms..(musmo
 
 const TREE_COUNT = 4;
 const DEFAULT_ACTIVE_TREE = '1';
+
 const BG_COUNT = 8;
 const DEFAULT_ACTIVE_BG = '1';
+
+const DEFAULT_COUNT_OF_SELECTED_TOYS = 20;
 
 export {
   HOME_PAGE_PATH,
@@ -79,4 +82,5 @@ export {
   DEFAULT_ACTIVE_TREE,
   BG_COUNT,
   DEFAULT_ACTIVE_BG,
+  DEFAULT_COUNT_OF_SELECTED_TOYS,
 };

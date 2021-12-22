@@ -2,7 +2,9 @@ import { IGameSettings, ISettings, SORTINGS } from '../types/common';
 import { DEFAULT_ACTIVE_BG, DEFAULT_ACTIVE_TREE, MAX_QUANTITY, MAX_YEAR, MIN_QUANTITY, MIN_YEAR } from '../constants';
 
 const selectedToysNumsFromLocalStorage = localStorage.getItem('toysNums');
-const initSelectedToysNums = selectedToysNumsFromLocalStorage ? JSON.parse(selectedToysNumsFromLocalStorage) : [];
+const initSelectedToysNums: Array<string> = selectedToysNumsFromLocalStorage
+  ? JSON.parse(selectedToysNumsFromLocalStorage)
+  : [];
 
 const settingsFromLocalStorage = localStorage.getItem('settings');
 const defaultSettings: ISettings = {
