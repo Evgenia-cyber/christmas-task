@@ -1,0 +1,7 @@
+  .game-toy-img{
+    position: absolute;
+    width: 90%;
+    &:hover {
+      cursor: move;
+    }
+  }
