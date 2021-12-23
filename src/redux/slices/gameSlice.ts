@@ -1,18 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { DEFAULT_COUNT_OF_SELECTED_TOYS } from '../../constants';
 import fetchAllToysData from '../../services/api';
-import { IGameSettings, IToy, IGameToy } from '../../types/common';
-import { initGameSettings, initSelectedToysNums } from '../initState';
+import { IGameSettings, IGameToyCategory, IGameTreeToy, IToy } from '../../types/common';
+import { initGameSettings } from '../initState';
 import { AppThunk, RootState } from '../store';
 
 interface IToysState {
-  toys: Array<IGameToy>;
+  toysOnSlots: Array<IGameToyCategory>;
+  toysOnTree: Array<IGameTreeToy>;
   isLoading: boolean;
   gameSettings: IGameSettings;
 }
 
 const initialState: IToysState = {
-  toys: [],
+  toysOnSlots: [],
+  toysOnTree: [],
   isLoading: false,
   gameSettings: initGameSettings,
 };
@@ -29,35 +31,50 @@ export const gameSlice = createSlice({
       state.gameSettings = newSettings;
       localStorage.setItem('gameSettings', JSON.stringify(newSettings));
     },
-    setGameToys: (state, action: PayloadAction<Array<IToy>>) => {
-      let toys = action.payload;
+    setGameToys: (state, action: PayloadAction<{ data: Array<IToy>; selectedToysFromToysPage: Array<string> }>) => {
+      let toys = action.payload.data;
+      const selectedToysNums = action.payload.selectedToysFromToysPage;
 
-      if (initSelectedToysNums.length) {
-        toys = toys.filter((toy) => initSelectedToysNums.includes(toy.num));
+      if (selectedToysNums.length) {
+        toys = toys.filter((toy) => selectedToysNums.includes(toy.num));
       } else {
         toys = toys.filter((toy) => Number(toy.num) <= DEFAULT_COUNT_OF_SELECTED_TOYS);
       }
 
-      state.toys = toys.map((toy) => ({
-        num: toy.num,
-        countOfToysOnSlot: Number(toy.count),
-        countOfToysOnTree: 0,
+      let toysOnSlots: Array<IGameToyCategory> = toys.map((toy) => ({
+        toysOnSlot: new Array(Number(toy.count)).fill('0').map((_item, index) => ({
+          id: `${toy.num}-${index}`,
+          num: toy.num,
+        })),
       }));
+
+      const toysCount = toysOnSlots.length;
+      if (toysCount < DEFAULT_COUNT_OF_SELECTED_TOYS) {
+        toysOnSlots = [
+          ...toysOnSlots,
+          ...new Array(DEFAULT_COUNT_OF_SELECTED_TOYS - toysCount).fill({ toysOnSlot: [] }),
+        ];
+      }
+
+      state.toysOnSlots = toysOnSlots;
     },
   },
 });
 
 export const { setIsLoading, setGameSettings, setGameToys } = gameSlice.actions;
 
-export const fetchGameToysData = (): AppThunk => async (dispatch) => {
-  dispatch(setIsLoading(true));
-  const data = await fetchAllToysData();
-  dispatch(setGameToys(data));
-  dispatch(setIsLoading(false));
-};
+export const fetchGameToysData =
+  (selectedToysFromToysPage: Array<string>): AppThunk =>
+  async (dispatch) => {
+    dispatch(setIsLoading(true));
+    const data = await fetchAllToysData();
+    dispatch(setGameToys({ data, selectedToysFromToysPage }));
+    dispatch(setIsLoading(false));
+  };
 
 export const isLoadingSlice = (state: RootState): boolean => state.game.isLoading;
 export const gameSettingsSlice = (state: RootState): IGameSettings => state.game.gameSettings;
-export const gameToysSlice = (state: RootState): Array<IGameToy> => state.game.toys;
+export const gameToysOnSlotsSlice = (state: RootState): Array<IGameToyCategory> => state.game.toysOnSlots;
+export const gameToysOnTreeSlice = (state: RootState): Array<IGameTreeToy> => state.game.toysOnTree;
 
 export default gameSlice.reducer;

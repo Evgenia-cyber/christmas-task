@@ -71,10 +71,18 @@ export interface IToy {
   isSelected?: boolean;
 }
 
-export interface IGameToy {
+export interface IGameSlotToy {
+  id: string;
   num: string;
-  countOfToysOnSlot: number;
-  countOfToysOnTree: number;
+}
+
+export interface IGameTreeToy extends IGameSlotToy {
+  x: string;
+  y: string;
+}
+
+export interface IGameToyCategory {
+  toysOnSlot: Array<IGameSlotToy>;
 }
 
 export interface ISettings {

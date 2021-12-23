@@ -144,6 +144,7 @@ export const toysArrSlice = (state: RootState): Array<IToy> =>
   state.toys.searchInputValue ? state.toys.searchedToys : state.toys.toys;
 export const isLoadingSlice = (state: RootState): boolean => state.toys.isLoading;
 export const selectedToysCountSlice = (state: RootState): number => state.toys.selectedToysNums.length;
+export const selectedToysSlice = (state: RootState): Array<string> => state.toys.selectedToysNums;
 export const isShowPopupSlice = (state: RootState): boolean => state.toys.isShowPopup;
 export const settingsSlice = (state: RootState): ISettings => state.toys.settings;
 export const searchInputValueSlice = (state: RootState): string => state.toys.searchInputValue;

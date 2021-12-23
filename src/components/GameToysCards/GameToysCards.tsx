@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchGameToysData, gameToysSlice, isLoadingSlice } from '../../redux/slices/gameSlice';
+import { fetchGameToysData, gameToysOnSlotsSlice, isLoadingSlice } from '../../redux/slices/gameSlice';
+import { selectedToysSlice } from '../../redux/slices/toysSlice';
 import GameToyCard from '../GameToyCard/GameToyCard';
 import Loader from '../Loader/Loader';
 
@@ -8,14 +9,13 @@ import './GameToysCards.scss';
 
 const GameToysCards: FC = () => {
   const isLoading = useSelector(isLoadingSlice);
-  const toys = useSelector(gameToysSlice);
+  const toysOnSlots = useSelector(gameToysOnSlotsSlice);
+  const selectedToysFromToysPage = useSelector(selectedToysSlice);
 
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    if (toys.length === 0) {
-      dispatch(fetchGameToysData());
-    }
+    dispatch(fetchGameToysData(selectedToysFromToysPage));
   }, []);
 
   return (
@@ -25,15 +25,11 @@ const GameToysCards: FC = () => {
         {isLoading ? (
           <Loader />
         ) : (
-          toys.length > 0 &&
-          toys.map((toy) => (
-            <GameToyCard
-              key={toy.num}
-              num={toy.num}
-              countOfToysOnSlot={toy.countOfToysOnSlot}
-              countOfToysOnTree={toy.countOfToysOnTree}
-            />
-          ))
+          toysOnSlots.length > 0 &&
+          toysOnSlots.map((category, index) => {
+            const key = index + 1;
+            return <GameToyCard key={key} toysOnSlot={category.toysOnSlot} />;
+          })
         )}
       </div>
     </div>

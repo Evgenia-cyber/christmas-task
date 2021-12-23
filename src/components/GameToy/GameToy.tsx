@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { TOY_IMAGE_URL } from '../../constants';
-import { IGameToy } from '../../types/common';
 
 import './GameToy.scss';
 
