@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { defaultSettings } from '../../redux/initState';
+import { clearTree } from '../../redux/slices/gameSlice';
 import { fetchToysData, resetFilters, resetSettings, setSettings, settingsSlice } from '../../redux/slices/toysSlice';
 import { BUTTON_TYPES, ISettings } from '../../types/common';
 import Button from '../Button/Button';
@@ -68,6 +69,7 @@ const Settings: FC = () => {
   };
 
   const onResetAllBtnClickHandler = () => {
+    dispatch(clearTree());
     dispatch(resetSettings());
     dispatch(fetchToysData());
     resetLocalStateAllSettings();
