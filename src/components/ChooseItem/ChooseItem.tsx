@@ -36,7 +36,7 @@ const ChooseItem: FC<Props> = ({
             onClick={onClickHandler}
             data-settingvalue={num}
           >
-            <img src={`${imageUrl}/${num}.${imageExtension}`} alt={imageAlt + num} />
+            <img src={`${imageUrl}/${num}.${imageExtension}`} alt={imageAlt + num} draggable={false} />
           </button>
         );
       })}

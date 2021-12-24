@@ -82,7 +82,7 @@ export interface IGameTreeToy extends IGameSlotToy {
 }
 
 export interface IGameToyCategory {
-  toysOnSlot: Array<IGameSlotToy>;
+  [key: string]: Array<IGameSlotToy>;
 }
 
 export interface ISettings {

@@ -1,12 +1,16 @@
 import React, { FC } from 'react';
-import { IGameToyCategory } from '../../types/common';
+import { IGameSlotToy } from '../../types/common';
 import GameToy from '../GameToy/GameToy';
 
 import './GameToyCard.scss';
 
-const GameToyCard: FC<IGameToyCategory> = ({ toysOnSlot }) => (
+interface Props {
+  toysOnSlot: Array<IGameSlotToy>;
+}
+
+const GameToyCard: FC<Props> = ({ toysOnSlot }) => (
   <div className="game-toy-card">
-    {toysOnSlot.length !== 0 && toysOnSlot.map((toy) => <GameToy key={toy.id} num={toy.num} />)}
+    {toysOnSlot.length !== 0 && toysOnSlot.map((toy) => <GameToy key={toy.id} id={toy.id} num={toy.num} />)}
     <span className="toy-card-count">{toysOnSlot.length}</span>
   </div>
 );

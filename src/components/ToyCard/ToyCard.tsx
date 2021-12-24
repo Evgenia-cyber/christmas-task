@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { TOY_IMAGE_URL } from '../../constants';
+import { clearTree, gameToysOnTreeSlice } from '../../redux/slices/gameSlice';
 import { toogleIsSelectedOfToy } from '../../redux/slices/toysSlice';
 import { IToy } from '../../types/common';
 
@@ -9,8 +10,13 @@ import './ToyCard.scss';
 const ToyCard: FC<IToy> = ({ num, name, count, year, shape, color, size, favorite, isSelected }) => {
   const dispatch = useDispatch();
 
+  const toysOnTree = useSelector(gameToysOnTreeSlice);
+
   const onClickHandler = () => {
     dispatch(toogleIsSelectedOfToy(num));
+    if (toysOnTree.length) {
+      dispatch(clearTree());
+    }
   };
 
   return (

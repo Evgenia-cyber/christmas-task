@@ -1,21 +1,25 @@
 import React, { FC } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { IMAGE_MAP_FOR_TREE, TREE_IMAGE_URL } from '../../constants';
-import { gameSettingsSlice } from '../../redux/slices/gameSlice';
+import { gameSettingsSlice, gameToysOnTreeSlice, setIsToyAboveTreeNow } from '../../redux/slices/gameSlice';
+import GameToy from '../GameToy/GameToy';
 
 import './GameTree.scss';
 
 const GameTree: FC = () => {
+  const dispatch = useDispatch();
+
+  const toysOnTree = useSelector(gameToysOnTreeSlice);
+
   const { activeTreeNum: tree, activeBgNum: bg } = useSelector(gameSettingsSlice);
 
   const allowDrop = (event: React.MouseEvent<HTMLAreaElement>) => {
     event.preventDefault();
-    console.log('dragOver');
   };
 
   const onDropToyToTree = (event: React.MouseEvent<HTMLAreaElement>) => {
     event.preventDefault();
-    console.log('drop');
+    dispatch(setIsToyAboveTreeNow(true));
   };
 
   return (
@@ -36,6 +40,8 @@ const GameTree: FC = () => {
         useMap="#image-tree-map"
         draggable={false}
       />
+      {toysOnTree.length > 0 &&
+        toysOnTree.map((toy) => <GameToy key={toy.id} id={toy.id} num={toy.num} x={toy.x} y={toy.y} />)}
     </div>
   );
 };

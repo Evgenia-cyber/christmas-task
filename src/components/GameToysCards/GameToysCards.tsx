@@ -26,9 +26,9 @@ const GameToysCards: FC = () => {
           <Loader />
         ) : (
           toysOnSlots.length > 0 &&
-          toysOnSlots.map((category, index) => {
+          toysOnSlots.map((toys, index) => {
             const key = index + 1;
-            return <GameToyCard key={key} toysOnSlot={category.toysOnSlot} />;
+            return <GameToyCard key={key} toysOnSlot={toys} />;
           })
         )}
       </div>
