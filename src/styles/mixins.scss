@@ -75,3 +75,16 @@
     justify-content: space-around;
   }
 }
+
+@mixin makeSnowflakes($duration, $delay) {
+  @for $i from 1 through 50 {
+    .snowflake:nth-child(#{$i}) {
+      --size: #{random(3) * 12}px;
+      --left-start: #{random(15)-20}vw;
+      --left-end: #{random(5)}vw;
+      left: #{random(100)}vw;
+      animation: snow #{random($duration) + $delay}s ease-in infinite;
+      animation-delay: -#{random($delay)}s;
+    }
+  }
+}

@@ -102,4 +102,5 @@ export interface IGameSettings {
 
 export interface ICommonSettings {
   isAudioPlay: boolean;
+  isSnow: boolean;
 }

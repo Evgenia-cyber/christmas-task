@@ -19,11 +19,16 @@ export const commonSettingsSlice = createSlice({
       state.settings.isAudioPlay = action.payload;
       localStorage.setItem('commonSettings', JSON.stringify(state.settings));
     },
+    toogleIsSnow: (state, action: PayloadAction<boolean>) => {
+      state.settings.isSnow = action.payload;
+      localStorage.setItem('commonSettings', JSON.stringify(state.settings));
+    },
   },
 });
 
-export const { toogleIsAudioPlay } = commonSettingsSlice.actions;
+export const { toogleIsAudioPlay, toogleIsSnow } = commonSettingsSlice.actions;
 
 export const isAudioPlaySlice = (state: RootState): boolean => state.commonSettings.settings.isAudioPlay;
+export const isSnowSlice = (state: RootState): boolean => state.commonSettings.settings.isSnow;
 
 export default commonSettingsSlice.reducer;

@@ -28,6 +28,7 @@ const initGameSettings = gameSettingsFromLocalStorage ? JSON.parse(gameSettingsF
 const commonSettingsFromLocalStorage = localStorage.getItem('commonSettings');
 const defaultCommonSettings: ICommonSettings = {
   isAudioPlay: false,
+  isSnow: false,
 };
 const initCommonSettings = commonSettingsFromLocalStorage
   ? JSON.parse(commonSettingsFromLocalStorage)

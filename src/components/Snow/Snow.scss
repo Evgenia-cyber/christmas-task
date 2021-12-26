@@ -1,0 +1,39 @@
+.snow-container {
+  position: fixed;
+  top: -100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none; // позволяет наряжать елку, менять фон, ... при снеге
+}
+
+.snow-toy-page {
+  @include makeSnowflakes(90, 10);
+}
+
+.snow-home-and-game-page {
+  @include makeSnowflakes(10, 15);
+}
+
+.snowflake {
+  position: absolute;
+  top: 0px;
+  font-size: var(--size);
+  opacity: 0.9;
+}
+
+.snowflake:nth-child(6n) {
+  opacity: 0.7;
+}
+
+@keyframes snow {
+  0% {
+    top: 0;
+    transform: translateX(var(--left-start)) rotate(0deg);
+  }
+  100% {
+    top: 110%;
+    transform: translateX(var(--left-end)) rotate(200deg);
+  }
+}
