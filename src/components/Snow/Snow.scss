@@ -9,11 +9,11 @@
 }
 
 .snow-toy-page {
-  @include makeSnowflakes(90, 10);
+  @include makeSnowflakes(90, 10, 100);
 }
 
 .snow-home-and-game-page {
-  @include makeSnowflakes(10, 15);
+  @include makeSnowflakes(10, 15, 50);
 }
 
 .snowflake {

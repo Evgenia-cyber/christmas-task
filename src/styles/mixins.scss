@@ -76,8 +76,8 @@
   }
 }
 
-@mixin makeSnowflakes($duration, $delay) {
-  @for $i from 1 through 50 {
+@mixin makeSnowflakes($duration, $delay, $count) {
+  @for $i from 1 through $count {
     .snowflake:nth-child(#{$i}) {
       --size: #{random(3) * 12}px;
       --left-start: #{random(15)-20}vw;
