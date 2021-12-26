@@ -14,7 +14,6 @@ const CommonSettings: FC = React.memo(() => {
   const isAudioPlay = useSelector(isAudioPlaySlice);
 
   if (isAudioPlay) {
-    audio.currentTime = 0;
     audio.play();
   } else {
     audio.pause();
@@ -36,6 +35,7 @@ const CommonSettings: FC = React.memo(() => {
   };
 
   const onAudioClickHandler = () => {
+    audio.currentTime = 0;
     dispatch(toogleIsAudioPlay(!isAudioPlay));
   };
 
