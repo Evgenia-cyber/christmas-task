@@ -99,3 +99,7 @@ export interface IGameSettings {
   activeTreeNum: string;
   activeBgNum: string;
 }
+
+export interface ICommonSettings {
+  isAudioPlay: boolean;
+}

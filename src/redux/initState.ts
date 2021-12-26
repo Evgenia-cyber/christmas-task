@@ -1,4 +1,4 @@
-import { IGameSettings, ISettings, SORTINGS } from '../types/common';
+import { IGameSettings, ISettings, SORTINGS, ICommonSettings } from '../types/common';
 import { DEFAULT_ACTIVE_BG, DEFAULT_ACTIVE_TREE, MAX_QUANTITY, MAX_YEAR, MIN_QUANTITY, MIN_YEAR } from '../constants';
 
 const selectedToysNumsFromLocalStorage = localStorage.getItem('toysNums');
@@ -25,4 +25,12 @@ const defaultGameSettings: IGameSettings = {
 };
 const initGameSettings = gameSettingsFromLocalStorage ? JSON.parse(gameSettingsFromLocalStorage) : defaultGameSettings;
 
-export { initSelectedToysNums, initSettings, defaultSettings, initGameSettings };
+const commonSettingsFromLocalStorage = localStorage.getItem('commonSettings');
+const defaultCommonSettings: ICommonSettings = {
+  isAudioPlay: false,
+};
+const initCommonSettings = commonSettingsFromLocalStorage
+  ? JSON.parse(commonSettingsFromLocalStorage)
+  : defaultCommonSettings;
+
+export { initSelectedToysNums, initSettings, defaultSettings, initGameSettings, initCommonSettings };

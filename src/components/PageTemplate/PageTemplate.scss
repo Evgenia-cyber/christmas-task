@@ -1,5 +1,6 @@
 .blur {
-  backdrop-filter: blur(5px);
+  padding-top: 70px;
+  @include blur-overlay();
 }
 
 .main {

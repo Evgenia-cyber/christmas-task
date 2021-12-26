@@ -1,26 +1,40 @@
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isAudioPlaySlice, toogleIsAudioPlay } from '../../redux/slices/commonSettingsSlice';
-import sound from '../../utils/sound';
 import snowImg from '../../assets/svg/snow.svg';
 import audioImg from '../../assets/svg/audio.svg';
+import audio from '../../utils/audio';
 
 import './CommonSettings.scss';
 
-const CommonSettings: FC = () => {
+const CommonSettings: FC = React.memo(() => {
   const dispatch = useDispatch();
 
   const isAudioPlay = useSelector(isAudioPlaySlice);
 
+  if (isAudioPlay) {
+    audio.currentTime = 0;
+    audio.play();
+  } else {
+    audio.pause();
+  }
+
+  React.useEffect(() => {
+    const onClickHandler = () => {
+      if (isAudioPlay) {
+        audio.play();
+      }
+      document.removeEventListener('click', onClickHandler);
+    };
+
+    document.addEventListener('click', onClickHandler);
+  }, []);
+
   const onSnowClickHandler = () => {
     console.log('snow');
   };
+
   const onAudioClickHandler = () => {
-    if (isAudioPlay) {
-      sound.stopSound();
-    } else {
-      sound.playSound();
-    }
     dispatch(toogleIsAudioPlay(!isAudioPlay));
   };
 
@@ -34,6 +48,6 @@ const CommonSettings: FC = () => {
       </button>
     </div>
   );
-};
+});
 
 export default CommonSettings;

@@ -4,11 +4,11 @@ import Nav from '../Nav/Nav';
 
 import './Header.scss';
 
-const Header: FC = () => (
+const Header: FC = React.memo(() => (
   <header className="header">
     <Nav />
     <CommonSettings />
   </header>
-);
+));
 
 export default Header;

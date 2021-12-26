@@ -1,12 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ICommonSettings } from '../../types/common';
 import { RootState } from '../store';
+import { initCommonSettings } from '../initState';
 
 interface ICommonSettingsState {
-  isAudioPlay: boolean;
+  settings: ICommonSettings;
 }
 
 const initialState: ICommonSettingsState = {
-  isAudioPlay: false,
+  settings: initCommonSettings,
 };
 
 export const commonSettingsSlice = createSlice({
@@ -14,13 +16,14 @@ export const commonSettingsSlice = createSlice({
   initialState,
   reducers: {
     toogleIsAudioPlay: (state, action: PayloadAction<boolean>) => {
-      state.isAudioPlay = action.payload;
+      state.settings.isAudioPlay = action.payload;
+      localStorage.setItem('commonSettings', JSON.stringify(state.settings));
     },
   },
 });
 
 export const { toogleIsAudioPlay } = commonSettingsSlice.actions;
 
-export const isAudioPlaySlice = (state: RootState): boolean => state.commonSettings.isAudioPlay;
+export const isAudioPlaySlice = (state: RootState): boolean => state.commonSettings.settings.isAudioPlay;
 
 export default commonSettingsSlice.reducer;

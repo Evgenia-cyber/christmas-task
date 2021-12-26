@@ -4,7 +4,6 @@ import Background from '../../components/Background/Background';
 import Button from '../../components/Button/Button';
 import { TOYS_PAGE_PATH } from '../../constants';
 import { BUTTON_TYPES } from '../../types/common';
-import Header from '../../components/Header/Header';
 
 import './HomePage.scss';
 
@@ -17,17 +16,6 @@ const HomePage: FC = () => {
 
   return (
     <Background isHomePage>
-      <div
-        style={{
-          width: '90%',
-          position: 'absolute',
-          left: '5%',
-          right: '5%',
-          top: 0,
-        }}
-      >
-        <Header />
-      </div>
       <h1 className="home-title">
         Новогодняя игра
         <br />

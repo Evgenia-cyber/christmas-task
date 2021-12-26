@@ -48,7 +48,7 @@ const ALL_SHAPES: IShape = {
 const ALL_SORTINGS = [SORTINGS.NAME_FROM_A, SORTINGS.NAME_FROM_Z, SORTINGS.COUNT_UP, SORTINGS.COUNT_DOWN];
 
 const SOUND_VOLUME = 0.3;
-const SOUND_URL = 'https://now.morsmusic.org/load/1137278702/Bobby_Helms..(musmore.com).mp3';
+const AUDIO_URL_FOR_HOME_PAGE = 'https://now.morsmusic.org/load/793738606/Dean_Martin_..(musmore.com).mp3';
 
 const TREE_COUNT = 4;
 const DEFAULT_ACTIVE_TREE = '1';
@@ -81,7 +81,7 @@ export {
   ALL_SHAPES,
   ALL_SORTINGS,
   SOUND_VOLUME,
-  SOUND_URL,
+  AUDIO_URL_FOR_HOME_PAGE,
   BG_IMAGE_URL,
   TREE_IMAGE_URL,
   TREE_COUNT,
