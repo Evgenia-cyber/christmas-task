@@ -22,4 +22,13 @@
 .nav-link.active {
   color: $hover-color;
   text-decoration: underline;
+  & img {
+    filter: $icons-filter;
+  }
+}
+
+.logo.active {
+  & img {
+    filter: $icons-filter;
+  }
 }
