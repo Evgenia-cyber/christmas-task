@@ -1,0 +1,71 @@
+.garlands-container {
+  pointer-events: none; // позволяет наряжать елку, менять фон, ... при снеге
+}
+
+.first-garland,
+.second-garland,
+.third-garland,
+.fourth-garland {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.first-garland {
+  top: 20%;
+  left: 45.5%;
+}
+
+.second-garland {
+  top: 35%;
+  left: 44%;
+}
+
+.third-garland {
+  top: 50%;
+  left: 41%;
+}
+
+.fourth-garland {
+  top: 65%;
+  left: 39%;
+}
+
+@media screen and (max-width: 1219px) {
+  .first-garland {
+    top: 850px;
+    left: 44%;
+  }
+
+  .second-garland {
+    top: 950px;
+    left: 42%;
+  }
+
+  .third-garland {
+    top: 1050px;
+    left: 40%;
+  }
+
+  .fourth-garland {
+    top: 1150px;
+    left: 36%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .first-garland {
+    left: 41%;
+  }
+
+  .second-garland {
+    left: 39%;
+  }
+
+  .third-garland {
+    left: 35%;
+  }
+
+  .fourth-garland {
+    left: 30%;
+  }
+}

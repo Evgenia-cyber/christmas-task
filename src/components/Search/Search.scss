@@ -1,0 +1,48 @@
+.search-form {
+  display: flex;
+  position: relative;
+}
+
+.search-reset-btn {
+  position: absolute;
+  top: 13px;
+  right: 17px;
+  @include icon-btn();
+}
+
+.search-input {
+  flex-basis: 100%;
+  @include card-overlay();
+  border-radius: 5px;
+  border: $button-border;
+  transition: background-color $transition-duration;
+  padding: 15px 45px;
+  outline: none;
+  color: $font-color;
+  font-size: $settings-font-size;
+  background-image: url(../../assets/svg/search.svg);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: 10px;
+  margin-right: 10px;
+  @media screen and (max-width: 1219px) {
+    margin-right: 0;
+  }
+}
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: $hover-color;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: $hover-color;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: $hover-color;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: $hover-color;
+}

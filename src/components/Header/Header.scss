@@ -1,0 +1,12 @@
+.header {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 0;
+  @include container();
+  height: $header-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}

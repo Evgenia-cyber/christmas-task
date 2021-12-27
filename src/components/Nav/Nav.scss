@@ -1,0 +1,34 @@
+.nav {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: inline-block;
+  height: 40px;
+  @include icon();
+}
+
+.logo img {
+  height: 100%;
+}
+
+.nav-link {
+  font-size: $menu-font-size;
+  @include hover();
+}
+
+.nav-link.active {
+  color: $hover-color;
+  text-decoration: underline;
+  & img {
+    filter: $icons-filter;
+  }
+}
+
+.logo.active {
+  & img {
+    filter: $icons-filter;
+  }
+}

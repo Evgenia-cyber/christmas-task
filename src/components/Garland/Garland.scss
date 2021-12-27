@@ -1,0 +1,148 @@
+.garland-multicolored {
+  --color1: rgb(251, 255, 0);
+  --color1-off: rgba(171, 173, 16, 0.8);
+  --color2: rgb(0, 225, 255);
+  --color2-off: rgba(0, 168, 168, 0.8);
+  --color3: rgb(255, 1, 86);
+  --color3-off: rgba(155, 2, 40, 0.8);
+  @include makeMulticoloredGarland($yellow, $yellow-off, $blue, $blue-off, $red, $red-off);
+}
+
+.garland-red {
+  --color: rgb(255, 1, 86);
+  --color-off: rgba(155, 2, 40, 0.8);
+  @include makeGarland($red, $red-off);
+}
+
+.garland-blue {
+  --color: rgb(0, 225, 255);
+  --color-off: rgba(0, 168, 168, 0.8);
+  @include makeGarland($blue, $blue-off);
+}
+
+.garland-green {
+  --color: rgb(22, 255, 1);
+  --color-off: rgba(33, 165, 21, 0.8);
+  @include makeGarland($green, $green-off);
+}
+
+.garland-yellow {
+  --color: rgb(251, 255, 0);
+  --color-off: rgba(171, 173, 16, 0.8);
+  @include makeGarland($yellow, $yellow-off);
+}
+
+// .garland {
+//   $light-item-color1: rgb(251, 255, 0);
+//   $light-item-off-color1: rgba(171, 173, 16, 0.8);
+//   $light-item-color2: rgb(251, 255, 0);
+//   $light-item-off-color2: rgba(171, 173, 16, 0.8);
+//   $light-item-color3: rgb(251, 255, 0);
+//   $light-item-off-color3: rgba(171, 173, 16, 0.8);
+
+//   $light-item-width: 10px;
+//   $light-item-height: 10px;
+//   $light-item-spacing: 10px;
+//   $light-item-spread: 2px;
+//   $rope-color: rgb(51, 71, 64);
+
+//   position: absolute;
+//   li {
+//     position: relative;
+//     display: inline-block;
+//     animation-fill-mode: both;
+//     animation-iteration-count: infinite;
+//     list-style: none;
+//     width: $light-item-width;
+//     height: $light-item-height;
+//     border-radius: 50%;
+//     margin: $light-item-spacing/2;
+//     background: $light-item-color1;
+//     box-shadow: 0px $light-item-height/6 $light-item-width * 2 $light-item-spread $light-item-color1;
+//     animation-name: flash-1;
+//     animation-duration: 2s;
+
+//     &:nth-child(2n + 1) {
+//       background: $light-item-color2;
+//       box-shadow: 0px $light-item-height/6 $light-item-width * 2 $light-item-spread $light-item-color2;
+//       animation-name: flash-2;
+//       animation-duration: 0.4s;
+//     }
+
+//     &:nth-child(4n + 2) {
+//       background: $light-item-color3;
+//       box-shadow: 0px $light-item-height/6 $light-item-width * 2 $light-item-spread $light-item-color3;
+//       animation-name: flash-3;
+//       animation-duration: 1.1s;
+//     }
+
+//     &:nth-child(odd) {
+//       animation-duration: 1.8s;
+//     }
+
+//     &:nth-child(3n + 1) {
+//       animation-duration: 1.4s;
+//     }
+
+//     &:before {
+//       content: '';
+//       position: absolute;
+//       top: (0 - ($light-item-height/6));
+//       left: 2px;
+//       background: $rope-color;
+//       width: ($light-item-width - 4);
+//       height: $light-item-height/4;
+//       border-radius: 2px;
+//     }
+//     &:after {
+//       content: '';
+//       position: absolute;
+//       top: (0 - $light-item-height/2);
+//       left: $light-item-width - 3;
+//       width: $light-item-spacing + 12;
+//       height: ($light-item-height/3 * 2);
+//       border-radius: 50%;
+//       border-bottom: solid $rope-color 1px;
+//     }
+//     &:last-child:after {
+//       content: none;
+//     }
+//     &:first-child {
+//       margin-left: -$light-item-spacing;
+//     }
+//   }
+
+//   @keyframes flash-1 {
+//     0%,
+//     100% {
+//       background: $light-item-color1;
+//       box-shadow: 0px $light-item-height/6 $light-item-width * 2 $light-item-spread $light-item-color1;
+//     }
+//     50% {
+//       background: $light-item-off-color1;
+//       box-shadow: none;
+//     }
+//   }
+//   @keyframes flash-2 {
+//     0%,
+//     100% {
+//       background: $light-item-color2;
+//       box-shadow: 0px $light-item-height/6 $light-item-width * 2 $light-item-spread $light-item-color2;
+//     }
+//     50% {
+//       background: $light-item-off-color2;
+//       box-shadow: none;
+//     }
+//   }
+//   @keyframes flash-3 {
+//     0%,
+//     100% {
+//       background: $light-item-color3;
+//       box-shadow: 0px $light-item-height/6 $light-item-width * 2 $light-item-spread $light-item-color3;
+//     }
+//     50% {
+//       background: $light-item-off-color3;
+//       box-shadow: none;
+//     }
+//   }
+// }

@@ -1,0 +1,283 @@
+@mixin overlay() {
+  background-color: $overlay-bg;
+  @include blur-overlay();
+}
+
+@mixin card-overlay() {
+  background-color: $overlay-bg-card;
+  @include blur-overlay();
+}
+
+@mixin blur-overlay() {
+  backdrop-filter: blur(5px);
+}
+
+@mixin container() {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding-left: $left-right-padding;
+  padding-right: $left-right-padding;
+}
+
+@mixin icon-btn() {
+  background: transparent;
+  border: none;
+  & img {
+    width: 100%;
+    height: 100%;
+    @include icon();
+  }
+}
+
+@mixin icon() {
+  transition: filter $transition-duration-icons;
+  &:hover {
+    cursor: pointer;
+    filter: $icons-filter;
+  }
+}
+
+@mixin hover() {
+  transition: color $transition-duration;
+  &:hover {
+    cursor: pointer;
+    color: $hover-color;
+  }
+}
+
+@mixin setting-title() {
+  width: 285px;
+  font-weight: 400;
+}
+
+@mixin game-setting-item() {
+  border-radius: 5px;
+  border: $button-border;
+  @include card-overlay();
+  & img {
+    width: 100%;
+    height: 100%;
+    @include icon();
+  }
+}
+
+@mixin game-aside-container() {
+  width: 300px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: $button-border;
+  text-align: center;
+  @media screen and (max-width: 1219px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+
+@mixin makeSnowflakes($duration, $delay, $count) {
+  @for $i from 1 through $count {
+    .snowflake:nth-child(#{$i}) {
+      --size: #{random(3) * 12}px;
+      --left-start: #{random(15)-20}vw;
+      --left-end: #{random(5)}vw;
+      left: #{random(100)}vw;
+      animation: snow #{random($duration) + $delay}s ease-in infinite;
+      animation-delay: -#{random($delay)}s;
+    }
+  }
+}
+
+@mixin makeMulticoloredGarland(
+  $light-item-color1,
+  $light-item-off-color1,
+  $light-item-color2,
+  $light-item-off-color2,
+  $light-item-color3,
+  $light-item-off-color3
+) {
+  $light-item-width: 10px;
+  $light-item-height: 10px;
+  $light-item-spacing: 10px;
+  $light-item-spread: 2px;
+  $rope-color: rgb(51, 71, 64);
+
+  position: absolute;
+  li {
+    position: relative;
+    display: inline-block;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    list-style: none;
+    width: $light-item-width;
+    height: $light-item-height;
+    border-radius: 50%;
+    margin: calc($light-item-spacing / 2);
+    background: $light-item-color1;
+    box-shadow: 0px calc($light-item-height / 6) $light-item-width * 2 $light-item-spread $light-item-color1;
+    animation-name: flash-1;
+    animation-duration: 2s;
+
+    &:nth-child(2n + 1) {
+      background: $light-item-color2;
+      box-shadow: 0px calc($light-item-height / 6) $light-item-width * 2 $light-item-spread $light-item-color2;
+      animation-name: flash-2;
+      animation-duration: 0.4s;
+    }
+
+    &:nth-child(4n + 2) {
+      background: $light-item-color3;
+      box-shadow: 0px calc($light-item-height / 6) $light-item-width * 2 $light-item-spread $light-item-color3;
+      animation-name: flash-3;
+      animation-duration: 1.1s;
+    }
+
+    &:nth-child(odd) {
+      animation-duration: 1.8s;
+    }
+
+    &:nth-child(3n + 1) {
+      animation-duration: 1.4s;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: (0 - calc($light-item-height / 6));
+      left: 2px;
+      background: $rope-color;
+      width: ($light-item-width - 4);
+      height: calc($light-item-height / 4);
+      border-radius: 2px;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: (0 - calc($light-item-height / 2));
+      left: $light-item-width - 3;
+      width: $light-item-spacing + 12;
+      height: (calc($light-item-height / 3) * 2);
+      border-radius: 50%;
+      border-bottom: solid $rope-color 1px;
+    }
+
+    &:last-child:after {
+      content: none;
+    }
+
+    &:first-child {
+      margin-left: -$light-item-spacing;
+    }
+  }
+
+  @keyframes flash-1 {
+    0%,
+    100% {
+      background: var(--color1);
+      box-shadow: 0px calc($light-item-height / 6) $light-item-width * 2 $light-item-spread var(--color1);
+    }
+    50% {
+      background: var(--color1-off);
+      box-shadow: none;
+    }
+  }
+  @keyframes flash-2 {
+    0%,
+    100% {
+      background: var(--color2);
+      box-shadow: 0px calc($light-item-height / 6) $light-item-width * 2 $light-item-spread var(--color2);
+    }
+    50% {
+      background: var(--color2-off);
+      box-shadow: none;
+    }
+  }
+  @keyframes flash-3 {
+    0%,
+    100% {
+      background: var(--color3);
+      box-shadow: 0px calc($light-item-height / 6) $light-item-width * 2 $light-item-spread var(--color3);
+    }
+    50% {
+      background: var(--color3-off);
+      box-shadow: none;
+    }
+  }
+}
+
+@mixin makeGarland($light-item, $light-item-off) {
+  $light-item-width: 10px;
+  $light-item-height: 10px;
+  $light-item-spacing: 10px;
+  $light-item-spread: 2px;
+  $rope-color: rgb(51, 71, 64);
+
+  position: absolute;
+  li {
+    position: relative;
+    display: inline-block;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    list-style: none;
+    width: $light-item-width;
+    height: $light-item-height;
+    border-radius: 50%;
+    margin: calc($light-item-spacing / 2);
+    background: $light-item;
+    box-shadow: 0px calc($light-item-height / 6) $light-item-width * 2 $light-item-spread $light-item;
+    animation-name: flash;
+    animation-duration: 2s;
+
+    &:nth-child(odd) {
+      animation-duration: 1.8s;
+    }
+
+    &:nth-child(3n + 1) {
+      animation-duration: 1.4s;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: (0 - calc($light-item-height / 6));
+      left: 2px;
+      background: $rope-color;
+      width: ($light-item-width - 4);
+      height: calc($light-item-height / 4);
+      border-radius: 2px;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: (0 - calc($light-item-height / 2));
+      left: $light-item-width - 3;
+      width: $light-item-spacing + 12;
+      height: (calc($light-item-height / 3) * 2);
+      border-radius: 50%;
+      border-bottom: solid $rope-color 1px;
+    }
+
+    &:last-child:after {
+      content: none;
+    }
+
+    &:first-child {
+      margin-left: -$light-item-spacing;
+    }
+  }
+
+  @keyframes flash {
+    0%,
+    100% {
+      background: var(--color);
+      box-shadow: 0px calc($light-item-height / 6) $light-item-width * 2 $light-item-spread var(--color);
+    }
+    50% {
+      background: var(--color-off);
+      box-shadow: none;
+    }
+  }
+}

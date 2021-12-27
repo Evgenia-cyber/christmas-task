@@ -1,0 +1,38 @@
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+//   right: 0;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: $button-font-size;
+  background-color: $popup-bg;
+}
+
+.popup-content {
+  position: sticky;
+  top: calc((100vh - 160px) / 2);
+  height: 160px;
+  width: 700px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 30px 20px 20px;
+  @include card-overlay();
+  border-radius: 5px;
+  border: $button-border;
+  transition: background-color $transition-duration;
+  &:hover {
+    background-color: $overlay-bg;
+    cursor: pointer;
+  }
+}
+
+.popup-close-btn {
+  height: 25px;
+  @include icon-btn();
+  transform: translateX(320px) translateY(-10px);
+}

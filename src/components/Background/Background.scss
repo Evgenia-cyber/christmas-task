@@ -1,0 +1,21 @@
+.home-page-bg,
+.page-bg {
+  background-color: #000000;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.home-page-bg {
+  padding-top: 50px;
+  min-height: 430px;
+  height: calc(100vh - 50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(../../assets/images/home-bg.jpg);
+}
+
+.page-bg {
+  background-image: url(../../assets/images/bg.jpg);
+}

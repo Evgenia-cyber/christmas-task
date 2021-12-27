@@ -1,0 +1,28 @@
+.game-toy-card {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  @include card-overlay();
+  border-radius: 5px;
+  border: $button-border;
+  transition: background-color $transition-duration;
+  user-select: none;
+  &:hover {
+    background-color: $overlay-bg;
+  }
+}
+
+.toy-card-count {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: $font-color;
+  background-color: $selected-color;
+  border-radius: 5px;
+  border: $button-border;
+  // z-index: 1;
+  transform: translateX(15px) translateY(15px);
+}

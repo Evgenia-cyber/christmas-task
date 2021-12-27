@@ -1,0 +1,16 @@
+.settings-snow,
+.settings-audio {
+  height: $menu-icons-height;
+  @include icon-btn();
+}
+
+.settings-snow.active,
+.settings-audio.active {
+  filter: $icons-filter;
+}
+
+.settings {
+  width: 110px;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,46 @@
+.garlands-setting {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 286px;
+  justify-content: center;
+  gap: 10px;
+}
+
+.off-garland-setting,
+.multicolored-garland-setting,
+.red-garland-setting,
+.blue-garland-setting,
+.green-garland-setting,
+.yellow-garland-setting {
+  width: 30px;
+  height: 30px;
+  border: $button-border;
+  border-radius: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.off-garland-setting {
+  background-color: transparent;
+}
+
+.multicolored-garland-setting {
+  background: linear-gradient(45deg, $red, $yellow, $blue);
+}
+
+.red-garland-setting {
+  background-color: $red;
+}
+
+.blue-garland-setting {
+  background-color: $blue;
+}
+
+.green-garland-setting {
+  background-color: $green;
+}
+
+.yellow-garland-setting {
+  background-color: $yellow;
+}

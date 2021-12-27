@@ -1,0 +1,11 @@
+.home-title {
+  margin-bottom: 70px;
+  padding: 50px;
+  text-align: center;
+  font-size: 45px;
+  letter-spacing: 4px;
+  text-shadow: $titde-text-shadow;
+  border-radius: 10px;
+  @include overlay();
+  border: $overlay-border;
+}
