@@ -36,3 +36,13 @@ $icons-filter: invert(42%) sepia(80%) saturate(382%) hue-rotate(357deg) brightne
 $menu-icons-height: 35px;
 $header-height: 70px;
 $footer-height: 70px;
+
+$light-off-opacity: 0.8;
+$yellow: rgb(251, 255, 0);
+$yellow-off: rgba(171, 173, 16, $light-off-opacity);
+$blue: rgb(0, 225, 255);
+$blue-off: rgba(0, 168, 168, $light-off-opacity);
+$red: rgb(255, 1, 86);
+$red-off: rgba(155, 2, 40, $light-off-opacity);
+$green: rgb(22, 255, 1);
+$green-off: rgba(33, 165, 21, $light-off-opacity);

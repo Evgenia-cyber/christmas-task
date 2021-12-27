@@ -151,6 +151,7 @@
       height: calc($light-item-height / 4);
       border-radius: 2px;
     }
+
     &:after {
       content: '';
       position: absolute;
@@ -161,9 +162,11 @@
       border-radius: 50%;
       border-bottom: solid $rope-color 1px;
     }
+
     &:last-child:after {
       content: none;
     }
+
     &:first-child {
       margin-left: -$light-item-spacing;
     }
@@ -195,7 +198,7 @@
     0%,
     100% {
       background: $light-item-color3;
-      box-shadow: 0px calc($light-item-height / 6)$light-item-width * 2 $light-item-spread $light-item-color3;
+      box-shadow: 0px calc($light-item-height / 6) $light-item-width * 2 $light-item-spread $light-item-color3;
     }
     50% {
       background: $light-item-off-color3;

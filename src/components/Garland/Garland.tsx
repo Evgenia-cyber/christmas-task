@@ -12,7 +12,7 @@ const Garland: FC<Props> = ({ count }) => {
   const activeGarland = useSelector(activeGarlandSlice);
 
   return (
-    <ul className={`garland ${activeGarland}`}>
+    <ul className={`garland-${activeGarland}`}>
       {new Array(count).fill(1).map((garland, index) => {
         const key = garland + index;
         return <li key={key}>{}</li>;

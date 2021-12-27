@@ -1,20 +1,24 @@
 import React, { FC } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../components/Button/Button';
 import GameSettings from '../../components/GameSettings/GameSettings';
 import GameToysCards from '../../components/GameToysCards/GameToysCards';
 import GameTree from '../../components/GameTree/GameTree';
-import Garlands from '../../components/Garlands/Garlands';
+import Garlands from '../../components/AllGarlands/Garlands';
 import GarlandSetting from '../../components/GarlandSetting/GarlandSetting';
 import PageTemplate from '../../components/PageTemplate/PageTemplate';
 import { offAudioAndSnow } from '../../redux/slices/commonSettingsSlice';
-import { resetTreeAndBg } from '../../redux/slices/gameSlice';
+import { activeGarlandSlice, resetTreeAndBg } from '../../redux/slices/gameSlice';
 import { BUTTON_TYPES } from '../../types/common';
 
 import './GamePage.scss';
+import { GARLANDS } from '../../constants';
 
 const GamePage: FC = () => {
   const dispatch = useDispatch();
+
+  const activeGarland = useSelector(activeGarlandSlice);
+  const isGarlandShow = activeGarland !== GARLANDS[0];
 
   const onResetAllBtnClickHandler = () => {
     dispatch(resetTreeAndBg());
@@ -30,7 +34,7 @@ const GamePage: FC = () => {
         </div>
         <div className="tree-container">
           <GameTree />
-          <Garlands />
+          {isGarlandShow && <Garlands />}
         </div>
         <div className="page-content-right">
           <GameToysCards />
