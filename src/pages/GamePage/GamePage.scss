@@ -10,3 +10,7 @@
 .page-content-right {
   @include game-aside-container();
 }
+
+.tree-container {
+  flex-grow: 1;
+}

@@ -1,0 +1,31 @@
+.garlands-container {
+  pointer-events: none; // позволяет наряжать елку, менять фон, ... при снеге
+}
+
+.first-garland,
+.second-garland,
+.third-garland,
+.fourth-garland {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.first-garland {
+  top: 20%;
+  left: 45.5%;
+}
+
+.second-garland {
+  top: 35%;
+  left: 44%;
+}
+
+.third-garland {
+  top: 50%;
+  left: 41%;
+}
+
+.fourth-garland{
+  top: 65%;
+  left: 39%;
+}

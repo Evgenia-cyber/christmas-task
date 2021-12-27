@@ -4,6 +4,8 @@ import Button from '../../components/Button/Button';
 import GameSettings from '../../components/GameSettings/GameSettings';
 import GameToysCards from '../../components/GameToysCards/GameToysCards';
 import GameTree from '../../components/GameTree/GameTree';
+import Garlands from '../../components/Garlands/Garlands';
+import GarlandSetting from '../../components/GarlandSetting/GarlandSetting';
 import PageTemplate from '../../components/PageTemplate/PageTemplate';
 import { offAudioAndSnow } from '../../redux/slices/commonSettingsSlice';
 import { resetTreeAndBg } from '../../redux/slices/gameSlice';
@@ -26,10 +28,13 @@ const GamePage: FC = () => {
           <GameSettings />
           <Button text="Сбросить настройки" type={BUTTON_TYPES.BUTTON} onClick={onResetAllBtnClickHandler} />
         </div>
-
-        <GameTree />
+        <div className="tree-container">
+          <GameTree />
+          <Garlands />
+        </div>
         <div className="page-content-right">
           <GameToysCards />
+          <GarlandSetting />
         </div>
       </div>
     </PageTemplate>

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SELECTED_TOYS_MAX_COUNT } from '../../constants';
+import { GARLANDS, SELECTED_TOYS_MAX_COUNT } from '../../constants';
 import fetchAllToysData from '../../services/api';
 import { IGameSettings, IGameSlotToy, IGameToyCategory, IGameTreeToy, IToy } from '../../types/common';
 import { defaultGameSettings, initGameSettings } from '../initState';
@@ -11,6 +11,7 @@ interface IToysState {
   isToyAboveTreeNow: boolean;
   isLoading: boolean;
   gameSettings: IGameSettings;
+  activeGarland: string;
 }
 
 const initialState: IToysState = {
@@ -19,12 +20,16 @@ const initialState: IToysState = {
   isToyAboveTreeNow: false,
   isLoading: false,
   gameSettings: initGameSettings,
+  activeGarland: GARLANDS[0],
 };
 
 export const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
+    setActiveGarland: (state, action: PayloadAction<string>) => {
+      state.activeGarland = action.payload;
+    },
     resetTreeAndBg: (state) => {
       state.gameSettings = defaultGameSettings;
       localStorage.removeItem('gameSettings');
@@ -103,6 +108,7 @@ export const {
   moveToyFromTreeToSlot,
   clearTree,
   resetTreeAndBg,
+  setActiveGarland,
 } = gameSlice.actions;
 
 export const fetchGameToysData =
@@ -134,5 +140,6 @@ export const gameToysOnSlotsSlice = (state: RootState): Array<Array<IGameSlotToy
 };
 export const gameToysOnTreeSlice = (state: RootState): Array<IGameTreeToy> => state.game.toysOnTree;
 export const isToyAboveTreeNowSlice = (state: RootState): boolean => state.game.isToyAboveTreeNow;
+export const activeGarlandSlice = (state: RootState): string => state.game.activeGarland;
 
 export default gameSlice.reducer;
