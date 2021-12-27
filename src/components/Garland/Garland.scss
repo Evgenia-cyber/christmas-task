@@ -1,34 +1,36 @@
 .garland-multicolored {
-  @include makeGarland($yellow, $yellow-off, $blue, $blue-off, $red, $red-off);
+  --color1: rgb(251, 255, 0);
+  --color1-off: rgba(171, 173, 16, 0.8);
+  --color2: rgb(0, 225, 255);
+  --color2-off: rgba(0, 168, 168, 0.8);
+  --color3: rgb(255, 1, 86);
+  --color3-off: rgba(155, 2, 40, 0.8);
+  @include makeMulticoloredGarland($yellow, $yellow-off, $blue, $blue-off, $red, $red-off);
 }
 
 .garland-red {
-  @include makeGarland($red, $red-off, $red, $red-off, $red, $red-off);
+  --color: rgb(255, 1, 86);
+  --color-off: rgba(155, 2, 40, 0.8);
+  @include makeGarland($red, $red-off);
 }
 
 .garland-blue {
-  @include makeGarland($blue, $blue-off, $blue, $blue-off, $blue, $blue-off);
+  --color: rgb(0, 225, 255);
+  --color-off: rgba(0, 168, 168, 0.8);
+  @include makeGarland($blue, $blue-off);
 }
 
 .garland-green {
-  @include makeGarland($green, $green-off, $green, $green-off, $green, $green-off);
+  --color: rgb(22, 255, 1);
+  --color-off: rgba(33, 165, 21, 0.8);
+  @include makeGarland($green, $green-off);
 }
 
 .garland-yellow {
-  @include makeGarland($yellow, $yellow-off, $yellow, $yellow-off, $yellow, $yellow-off);
+  --color: rgb(251, 255, 0);
+  --color-off: rgba(171, 173, 16, 0.8);
+  @include makeGarland($yellow, $yellow-off);
 }
-
-// .garland {
-//   border: 1px solid blue;
-//   @include makeGarland(
-//     rgb(251, 255, 0),
-//     rgba(171, 173, 16, 0.8),
-//     rgb(251, 255, 0),
-//     rgba(171, 173, 16, 0.8),
-//     rgb(251, 255, 0),
-//     rgba(171, 173, 16, 0.8)
-//   );
-// }
 
 // .garland {
 //   $light-item-color1: rgb(251, 255, 0);
