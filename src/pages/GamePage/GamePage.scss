@@ -1,9 +1,21 @@
-.page-content {
-  display: flex;
-  justify-content: space-between;
+.page-content.game-page-content {
   gap: 10px;
   @media screen and (max-width: 1219px) {
-    flex-direction: column-reverse;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    .page-content-left {
+      order: 1;
+      flex-basis: 30%;
+    }
+    .tree-container {
+      order: 3;
+      flex-basis: 100%;
+    }
+    .page-content-right {
+      order: 2;
+      flex-basis: 40%;
+    }
   }
 }
 

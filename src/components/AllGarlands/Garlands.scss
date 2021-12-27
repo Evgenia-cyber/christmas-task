@@ -25,7 +25,47 @@
   left: 41%;
 }
 
-.fourth-garland{
+.fourth-garland {
   top: 65%;
   left: 39%;
+}
+
+@media screen and (max-width: 1219px) {
+  .first-garland {
+    top: 850px;
+    left: 44%;
+  }
+
+  .second-garland {
+    top: 950px;
+    left: 42%;
+  }
+
+  .third-garland {
+    top: 1050px;
+    left: 40%;
+  }
+
+  .fourth-garland {
+    top: 1150px;
+    left: 36%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .first-garland {
+    left: 41%;
+  }
+
+  .second-garland {
+    left: 39%;
+  }
+
+  .third-garland {
+    left: 35%;
+  }
+
+  .fourth-garland {
+    left: 30%;
+  }
 }

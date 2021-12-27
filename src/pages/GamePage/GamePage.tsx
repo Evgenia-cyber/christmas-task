@@ -27,8 +27,8 @@ const GamePage: FC = () => {
 
   return (
     <PageTemplate>
-      <div className="page-content">
-        <div>
+      <div className="page-content game-page-content">
+        <div className="page-content-left">
           <GameSettings />
           <Button text="Сбросить настройки" type={BUTTON_TYPES.BUTTON} onClick={onResetAllBtnClickHandler} />
         </div>
