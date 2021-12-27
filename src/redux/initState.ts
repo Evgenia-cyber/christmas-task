@@ -34,4 +34,12 @@ const initCommonSettings = commonSettingsFromLocalStorage
   ? JSON.parse(commonSettingsFromLocalStorage)
   : defaultCommonSettings;
 
-export { initSelectedToysNums, initSettings, defaultSettings, initGameSettings, initCommonSettings };
+export {
+  initSelectedToysNums,
+  initSettings,
+  defaultSettings,
+  initGameSettings,
+  initCommonSettings,
+  defaultGameSettings,
+  defaultCommonSettings,
+};

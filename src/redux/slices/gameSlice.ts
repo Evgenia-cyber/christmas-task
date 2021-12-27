@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { SELECTED_TOYS_MAX_COUNT } from '../../constants';
 import fetchAllToysData from '../../services/api';
 import { IGameSettings, IGameSlotToy, IGameToyCategory, IGameTreeToy, IToy } from '../../types/common';
-import { initGameSettings } from '../initState';
+import { defaultGameSettings, initGameSettings } from '../initState';
 import { AppThunk, RootState } from '../store';
 
 interface IToysState {
@@ -25,6 +25,10 @@ export const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
+    resetTreeAndBg: (state) => {
+      state.gameSettings = defaultGameSettings;
+      localStorage.removeItem('gameSettings');
+    },
     clearTree: (state) => {
       state.toysOnTree = [];
     },
@@ -98,6 +102,7 @@ export const {
   moveToyInsideTree,
   moveToyFromTreeToSlot,
   clearTree,
+  resetTreeAndBg,
 } = gameSlice.actions;
 
 export const fetchGameToysData =
